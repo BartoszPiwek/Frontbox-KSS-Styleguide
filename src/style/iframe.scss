@@ -1,0 +1,57 @@
+@import "variables";
+
+body,
+html {
+	display: block !important;
+	position: static !important;
+	height: auto !important;
+	min-height: auto !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	background: none !important;
+	color: black !important;
+	font-family: monospace !important;
+	font-size: 16px !important;
+}
+
+body {
+	overflow: hidden;
+}
+
+[class^="col"] {
+	color: $colorBlack;
+
+	&:before {
+		min-height: 35px;
+		z-index: -1;
+		color: $colorBlack;
+		content: "";
+		border: 1px solid $colorSecondary;
+	}
+}
+
+.debug-element {
+	& + & {
+		margin-top: 30px;
+	}
+
+	&__content {
+		overflow: hidden;
+	}
+}
+
+.wrap {
+	min-height: 35px;
+	background: $colorSecondary;
+
+	&:before {
+		display: block;
+		width: 100%;
+		min-height: 35px;
+		z-index: -1;
+		background: $colorPrimary;
+		color: $colorBlack;
+		content: "";
+		border: 1px solid $colorSecondary;
+	}
+}

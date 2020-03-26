@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="doc" lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Frontbox KSS Styleguide Playground</title>
+	<meta name="description" content="FrontBox CSS Documentation">
+	<meta name="generator" content="kss-node">
+	<meta name="viewport" content="width=device-width">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="kss-assets/index.css">
+</head>
+
+<body class="doc-body">
+	<div class="page">
+
+		<aside class="sidebar">
+			<nav class="sidebar-nav" aria-label="Style Guide">
+				<ul class="sidebar-nav__menu">
+
+					<li class="sidebar-nav__item ">
+						<a class="sidebar-nav__link" href="index.html">
+							Homepage
+						</a>
+					</li>
+
+					<li class="sidebar-nav__item  is-active ">
+						<a class="sidebar-nav__link" href="section-modules.html">
+							Modules
+						</a>
+
+						<ul class="sidebar-nav__child">
+							<li class="sidebar-nav__item sidebar-nav__item--depth-2">
+								<a class="sidebar-nav__link" href="section-modules.html#modules-wrap">
+									Wrap
+								</a>
+							</li>
+							<li class="sidebar-nav__item sidebar-nav__item--depth-3">
+								<a class="sidebar-nav__link" href="section-modules.html#modules-wrap-style">
+									Style
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+
+		<main class="main">
+			<div class="main__container">
+
+
+				<h1 class="main__header">
+					Modules
+				</h1>
+
+
+
+				<section id="modules-wrap" class="section section--depth-2">
+
+					<a class="section-title depth-2" href="#modules-wrap">
+						<span class="section-title__text depth-2">
+							Wrap
+						</span>
+						<span class="section-title__ref">
+							#Modules.wrap
+						</span>
+					</a>
+
+					<div class="section-description markdown section__wrap">
+						<p>Include wrap function inside container class to hold content in maximize width with space aside corner.
+Space can be created in asix x (<code>padding left</code> and <code>padding-right</code>).<br>
+Default class for this function named <code>.wrap</code> and is located in
+<a href="https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss">style/_tools.scss</a> file.
+Prepared modifications are <code>navbar</code> and <code>footer</code>.</p>
+
+						Source code located in file
+						<a href="https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/playground/index.scss#L1"
+							target="_blank">
+							playground/index.scss
+						</a>.
+					</div>
+
+					<div class="section__body">
+						<div class="section-item">
+							<h3 class="section-item__title section__wrap">Function</h3>
+							<div class="section__wrap">
+								<pre class="language-scss"><code class="language-scss select-all"><span class="token function">add-wrap</span><span class="token punctuation">(</span><span class="token variable">$max-width</span><span class="token punctuation">,</span> <span class="token variable">$padding-x</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+							</div>
+						</div>
+
+						<div class="section-item">
+							<h3 class="section-item__title section__wrap">Arguments</h3>
+							<div class="section__wrap">
+								<table class="table">
+									<thead>
+										<td>Variable</td>
+										<td>Type</td>
+										<td>Default value</td>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="token function">$max-width</td>
+											<td>numberPixel</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="token function">$padding-x</td>
+											<td>numberPixel?</td>
+											<td>0</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="section-item">
+							<h3 class="section-item__title section__wrap">Usage</h3>
+							<div class="section__wrap">
+								<pre class="language-scss"><code class="language-scss select-all"><span class="token selector">.wrap </span><span class="token punctuation">{</span>
+ <span class="token keyword">@include</span> <span class="token function">add-wrap</span><span class="token punctuation">(</span>1024px<span class="token punctuation">,</span> 20px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+							</div>
+						</div>
+
+
+						<div class="section-item">
+							<h3 class="section-item__title section__wrap">Output</h3>
+							<div class="section__wrap">
+								<pre class="language-none">
+									<iframe class="iframe" data-iframe="output"></iframe>
+									<div data-iframe-content="output">
+										<div class="debug-element">
+  <div class="debug-element__content">
+    <div class="wrap"></div>
+  </div>
+</div>
+									</div>
+								</pre>
+							</div>
+							<br>
+							<h4 class="section-item__title section__wrap">Pug</h4>
+							<div class="section__wrap">
+								<pre
+									class="language-pug"><code class="language-pug" data-language="pug"><span class="token tag">.wrap</span></code></pre>
+							</div>
+							<br>
+							<h4 class="section-item__title section__wrap">HTML</h4>
+							<div class="section__wrap">
+								<pre
+									class="language-html"><code class="language-html" data-language="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>wrap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+							</div>
+						</div>
+
+					</div>
+
+
+				</section>
+
+
+
+				<section id="modules-wrap-style" class="section section--depth-3">
+
+					<a class="section-title depth-3" href="#modules-wrap-style">
+						<span class="section-title__text depth-3">
+							Style
+						</span>
+						<span class="section-title__ref">
+							#Modules.wrap.style
+						</span>
+					</a>
+
+					<div class="section-description markdown section__wrap">
+						<p>Inject <code>.wrap</code> style.</p>
+
+						Source code located in file
+						<a href="https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/playground/index.scss#L27"
+							target="_blank">
+							playground/index.scss
+						</a>.
+					</div>
+
+					<div class="section__body">
+						<div class="section-item">
+							<h3 class="section-item__title section__wrap">Function</h3>
+							<div class="section__wrap">
+								<pre class="language-scss"><code class="language-scss select-all">wrap-style<span class="token punctuation">;</span></code></pre>
+							</div>
+						</div>
+
+
+						<div class="section-item">
+							<h3 class="section-item__title section__wrap">Usage</h3>
+							<div class="section__wrap">
+								<pre class="language-scss"><code class="language-scss select-all"><span class="token keyword">@include</span> wrap-style<span class="token punctuation">;</span></code></pre>
+							</div>
+						</div>
+
+
+
+					</div>
+
+
+				</section>
+
+
+			</div>
+		</main>
+	</div>
+
+	<!-- SCRIPTS -->
+	<script src="kss-assets/kss.js"></script>
+	<script src="kss-assets/kss-fullscreen.js"></script>
+	<script src="kss-assets/kss-guides.js"></script>
+	<script src="kss-assets/scrollspy.js"></script>
+	<script src="kss-assets/kss-markup.js"></script>
+	<script>
+		var spy = new ScrollSpy('#body', {
+			nav: '.sidebar-nav__child > li > a',
+			className: 'is-viewed'
+		});
+		var kssFullScreen = new KssFullScreen({
+			idPrefix: 'kss-fullscreen-',
+			bodyClass: 'kss-fullscreen-mode',
+			elementClass: 'is-fullscreen'
+		});
+		var kssGuides = new KssGuides({
+			bodyClass: 'kss-guides-mode'
+		});
+		var kssMarkup = new KssMarkup({
+			bodyClass: 'kss-markup-mode',
+			detailsClass: 'kss-markup'
+		});
+	</script>
+	
+
+	<script>
+		var $iframe = $("[data-iframe]");
+
+		$iframe.each(function (index, element) {
+			var
+				$this = $(this),
+				$content = $this.next();
+
+			$this.contents().find("head").append('<link rel="stylesheet" href="/style/bootstrap.css">');
+			$this.contents().find("head").append('<link rel="stylesheet" href="/style/utilities.css">');
+			$this.contents().find("head").append('<link rel="stylesheet" href="/style/style.css">');
+			$this.contents().find("head").append('<link rel="stylesheet" href="/style/iframe.css">');
+			$this.contents().find("head").append('<meta name="viewport" content="width=device-width, initial-scale=1">');
+			$this.contents().find("body").append($content);
+			setTimeout(function () {
+				$this.css('height', $this[0].contentWindow.document.documentElement.scrollHeight + 'px');
+			}, 1000);
+		});
+	</script>
+</body>
+
+</html>

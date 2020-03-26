@@ -1,0 +1,17 @@
+{
+  "title": "Frontbox KSS Styleguide Playground",
+  "builder": "dist/",
+  "source": "assets/",
+  "custom": [
+    "Function",
+    "Output",
+    "OutputCSS",
+    "Icons",
+    "Usage",
+    "Arguments",
+    "Title"
+  ],
+  "extend": "scr/helpers",
+  "destination": "styleguide/",
+  "homepage": "playground/README.md"
+}

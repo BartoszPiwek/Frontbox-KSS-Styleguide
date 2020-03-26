@@ -1,0 +1,28 @@
+{
+  "name": "@frontbox/kss-styleguide",
+  "version": "0.0.1",
+  "description": "Fronbox KSS Styleguide",
+  "scripts": {
+    "playground": "yarn build && kss playground/ --config kss-config.json",
+    "build": "node-sass src/style/index.scss dist/kss-assets/index.css"
+  },
+  "keywords": [
+    "framework",
+    "frontbox",
+    "kss",
+    "documentation",
+    "styleguide"
+  ],
+  "author": "Bartosz Piwek",
+  "license": "ISC",
+  "devDependencies": {
+    "kss": "^3.0.0",
+    "node-sass": "4.13.1"
+  },
+  "dependencies": {
+    "pug": "^2.0.4",
+    "prismjs": "^1.19.0",
+    "highlight.js": "^9.18.1",
+    "reset-css": "^5.0.1"
+  }
+}

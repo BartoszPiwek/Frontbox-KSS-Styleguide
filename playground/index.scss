@@ -1,0 +1,39 @@
+/*
+Wrap
+
+Include wrap function inside container class to hold content in maximize width with space aside corner.
+Space can be created in asix x (`padding left` and `padding-right`).<br>
+Default class for this function named `.wrap` and is located in 
+[style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file. 
+Prepared modifications are `navbar` and `footer`.
+
+Function:
+add-wrap($max-width, $padding-x);
+
+Arguments:
+$max-width : numberPixel
+$padding-x : numberPixel? : 0
+
+Usage:
+.wrap {
+ @include add-wrap(1024px, 20px);
+}
+
+Output:
+.wrap
+
+Style guide: Modules.wrap
+*/
+/*
+Style
+
+Inject `.wrap` style.
+
+Function:
+wrap-style;
+
+Usage:
+@include wrap-style;
+
+Style guide: Modules.wrap.style
+*/
