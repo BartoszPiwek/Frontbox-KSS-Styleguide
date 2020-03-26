@@ -1,5 +1,5 @@
 {
-  "name": "@frontbox/kss-styleguide",
+  "name": "@bartoszpiwek/frontbox-kss-styleguide",
   "version": "0.0.1",
   "description": "Fronbox KSS Styleguide",
   "scripts": {
@@ -18,6 +18,13 @@
   "devDependencies": {
     "kss": "^3.0.0",
     "node-sass": "4.13.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/bartoszpiwek/Frontbox-KSS-Styleguide.git"
   },
   "dependencies": {
     "pug": "^2.0.4",
