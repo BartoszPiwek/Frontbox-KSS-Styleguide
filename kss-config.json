@@ -12,6 +12,6 @@
     "Title"
   ],
   "extend": "scr/helpers",
-  "destination": "styleguide/",
+  "destination": "playground/styleguide",
   "homepage": "playground/README.md"
 }

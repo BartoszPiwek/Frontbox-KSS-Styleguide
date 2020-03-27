@@ -1,10 +1,12 @@
 {
-  "name": "@bartoszpiwek/frontbox-kss-styleguide",
+  "name": "@bpiwek/frontbox-kss-styleguide",
   "version": "0.0.1",
   "description": "Fronbox KSS Styleguide",
   "scripts": {
-    "playground": "yarn build && kss playground/ --config kss-config.json",
-    "build": "node-sass src/style/index.scss dist/kss-assets/index.css"
+    "start": "yarn build && kss playground/ --config kss-config.json",
+    "build": "node-sass src/style/index.scss dist/kss-assets/index.css",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "npm publish --access public"
   },
   "keywords": [
     "framework",
@@ -18,13 +20,6 @@
   "devDependencies": {
     "kss": "^3.0.0",
     "node-sass": "4.13.1"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "ssh://git@github.com/bartoszpiwek/Frontbox-KSS-Styleguide.git"
   },
   "dependencies": {
     "pug": "^2.0.4",

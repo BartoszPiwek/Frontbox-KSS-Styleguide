@@ -1,2 +1,5 @@
 node_modules
 *.lock
+playground/styleguide
+package-lock.json
+*.log
