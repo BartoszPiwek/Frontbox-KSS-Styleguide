@@ -16,28 +16,28 @@
 <body class="doc-body">
 	<div class="page">
 
-		<aside class="sidebar">
-			<nav class="sidebar-nav" aria-label="Style Guide">
-				<ul class="sidebar-nav__menu">
+		<aside class="doc-sidebar">
+			<nav class="doc-sidebar-nav" aria-label="Style Guide">
+				<ul class="doc-sidebar-nav__menu">
 
-					<li class="sidebar-nav__item {{#if template.isHomepage}} is-active {{/if}}">
-						<a class="sidebar-nav__link" href="index.html">
+					<li class="doc-sidebar-nav__item {{#if template.isHomepage}} is-active {{/if}}">
+						<a class="doc-sidebar-nav__link" href="index.html">
 							Homepage
 						</a>
 					</li>
 
 					{{#each menu}}
-					<li class="sidebar-nav__item {{#if isActive}} is-active {{/if}}">
-						<a class="sidebar-nav__link" href="section-{{referenceURI}}.html">
+					<li class="doc-sidebar-nav__item {{#if isActive}} is-active {{/if}}">
+						<a class="doc-sidebar-nav__link" href="section-{{referenceURI}}.html">
 							{{header}}
 						</a>
 
 						{{#if isActive}}
 						{{#if children}}
-						<ul class="sidebar-nav__child">
+						<ul class="doc-sidebar-nav__child">
 							{{#each children}}
-							<li class="sidebar-nav__item sidebar-nav__item--depth-{{depth}}">
-								<a class="sidebar-nav__link" href="section-{{../referenceURI}}.html#{{referenceURI}}">
+							<li class="doc-sidebar-nav__item sidebar-nav__item--depth-{{depth}}">
+								<a class="doc-sidebar-nav__link" href="section-{{../referenceURI}}.html#{{referenceURI}}">
 									{{header}}
 								</a>
 							</li>
@@ -51,11 +51,11 @@
 			</nav>
 		</aside>
 
-		<main class="main">
-			<div class="main__container">
+		<main class="doc-main">
+			<div class="doc-main__container">
 				{{#if template.isHomepage}}
 				{{#if homepage}}
-				<div class="markdown">
+				<div class="doc-markdown">
 					{{{homepage}}}
 				</div>
 				{{/if}}
@@ -64,11 +64,11 @@
 				{{#each sections}}
 
 				{{#if @first}}
-				<h1 class="main__header">
+				<h1 class="doc-main__header">
 					{{header}}
 				</h1>
 				{{#if description}}
-				<div class="main__description section__wrap markdown">{{{description}}}</div>
+				<div class="doc-main__description section__wrap markdown">{{{description}}}</div>
 				{{/if}}
 				{{else}}
 
@@ -315,26 +315,6 @@
 		});
 	</script>
 	{{{scripts}}}
-
-	<script>
-		var $iframe = $("[data-iframe]");
-
-		$iframe.each(function (index, element) {
-			var
-				$this = $(this),
-				$content = $this.next();
-
-			$this.contents().find("head").append('<link rel="stylesheet" href="/style/bootstrap.css">');
-			$this.contents().find("head").append('<link rel="stylesheet" href="/style/utilities.css">');
-			$this.contents().find("head").append('<link rel="stylesheet" href="/style/style.css">');
-			$this.contents().find("head").append('<link rel="stylesheet" href="/style/iframe.css">');
-			$this.contents().find("head").append('<meta name="viewport" content="width=device-width, initial-scale=1">');
-			$this.contents().find("body").append($content);
-			setTimeout(function () {
-				$this.css('height', $this[0].contentWindow.document.documentElement.scrollHeight + 'px');
-			}, 1000);
-		});
-	</script>
 </body>
 
 </html>

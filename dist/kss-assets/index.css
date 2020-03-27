@@ -366,16 +366,17 @@ h3 {
   position: relative;
   margin: 30px 0 20px; }
 
-.main {
-  width: calc(100% - 200px);
+.doc-main {
+  width: calc(100% - 202px);
   margin-left: auto;
   padding: 40px 0; }
-  .main__header {
+  .doc-main__header {
+    color: #05386b;
     margin-bottom: 30px;
     font-size: 45px;
     font-weight: 300;
     text-align: right; }
-  .main__description {
+  .doc-main__description {
     font-size: 18px; }
 
 .section__wrap {
@@ -945,11 +946,12 @@ code {
 #kss-node pre.hljs code {
   color: inherit; }
 
-.markdown a {
+.doc-markdown a {
+  text-decoration: none;
   position: relative;
   color: #05386b;
   white-space: nowrap; }
-  .markdown a:before {
+  .doc-markdown a:before {
     content: "";
     position: absolute;
     bottom: -2px;
@@ -957,7 +959,7 @@ code {
     height: 1px;
     background: #379683; }
 
-.markdown blockquote {
+.doc-markdown blockquote {
   margin: 4px 0;
   padding: 10px 0 10px 10px;
   border-left: 2px solid #379683;
@@ -990,7 +992,7 @@ code {
   to {
     width: 320px; } }
 
-.sidebar {
+.doc-sidebar {
   position: fixed;
   top: 0;
   width: 200px;
@@ -999,30 +1001,32 @@ code {
   overflow-y: auto;
   border-right: 2px solid #379683; }
 
-.sidebar-nav__menu {
+.doc-sidebar-nav__menu {
   padding: 40px 20px; }
-  .sidebar-nav__menu > *:first-child {
+  .doc-sidebar-nav__menu > *:first-child {
     margin-top: 0; }
 
-.sidebar-nav__item {
+.doc-sidebar-nav__item {
   margin: 12px 0; }
-  .sidebar-nav__item--depth-3 {
+  .doc-sidebar-nav__item--depth-3 {
     padding-left: 12px;
     border-left: 2px solid rgba(55, 150, 131, 0.5); }
 
-.sidebar-nav__link {
+.doc-sidebar-nav__link {
+  color: #1b1716;
+  text-decoration: none;
   display: block; }
-  .sidebar-nav__link.is-viewed {
+  .doc-sidebar-nav__link.is-viewed {
     color: #05386b;
     font-weight: bold; }
-  .sidebar-nav__link:hover {
+  .doc-sidebar-nav__link:hover {
     color: #053769; }
 
-.sidebar-nav .is-active > a {
+.doc-sidebar-nav .is-active > .doc-sidebar-nav__link {
   color: #05386b;
   font-weight: bold; }
 
-.sidebar-nav .is-active > .sidebar-nav__child {
+.doc-sidebar-nav .is-active > .doc-sidebar-nav__child {
   padding-left: 12px;
   border-left: 2px solid #379683; }
 

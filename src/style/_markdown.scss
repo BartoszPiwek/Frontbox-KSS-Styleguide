@@ -1,26 +1,27 @@
-.markdown {
-	a {
-		position: relative;
-		color: $colorPrimary;
-		white-space: nowrap;
+.doc-markdown {
+  a {
+    text-decoration: none;
+    position: relative;
+    color: $colorPrimary;
+    white-space: nowrap;
 
-		&:before {
-			content: "";
-			position: absolute;
-			bottom: -2px;
-			width: 100%;
-			height: 1px;
-			background: $colorSecondary;
-		}
-	}
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      width: 100%;
+      height: 1px;
+      background: $colorSecondary;
+    }
+  }
 
-	blockquote {
-		margin: 4px 0;
-		padding: 10px 0 10px 10px;
-		border-left: 2px solid $colorSecondary;
-		background: transparentize($colorSecondary, 0.8);
-		font-size: small;
-		font-style: italic;
-		line-height: 5px;
-	}
+  blockquote {
+    margin: 4px 0;
+    padding: 10px 0 10px 10px;
+    border-left: 2px solid $colorSecondary;
+    background: transparentize($colorSecondary, 0.8);
+    font-size: small;
+    font-style: italic;
+    line-height: 5px;
+  }
 }
