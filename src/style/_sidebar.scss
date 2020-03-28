@@ -1,11 +1,13 @@
 .doc-sidebar {
-  position: fixed;
-  top: 0;
-  width: 200px;
-  height: 100%;
+  position: sticky;
+  flex: 0 0 200px;
   overflow-x: hidden;
   overflow-y: auto;
-  border-right: 2px solid $colorSecondary;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  height: 100%;
+  max-height: 100vh;
 }
 
 .doc-sidebar-nav {
@@ -20,7 +22,7 @@
   &__item {
     margin: 12px 0;
 
-    &--depth {
+    &.doc-depth {
       &-3 {
         padding-left: 12px;
         border-left: 2px solid transparentize($colorSecondary, 0.5);
@@ -33,7 +35,7 @@
     text-decoration: none;
     display: block;
 
-    &.is-viewed {
+    &.doc-is-viewed {
       color: $colorPrimary;
       font-weight: bold;
     }
@@ -43,7 +45,7 @@
     }
   }
 
-  .is-active {
+  .doc-is-active {
     > .doc-sidebar-nav__link {
       color: $colorPrimary;
       font-weight: bold;

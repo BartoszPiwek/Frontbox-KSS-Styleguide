@@ -1,0 +1,68 @@
+.doc-section-title {
+  align-items: flex-end;
+  justify-content: space-between;
+  display: flex;
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  margin: 30px 0 35px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: $colorWhite;
+  box-shadow: 5px 5px 10px #f3f7fb;
+  text-decoration: none;
+  color: $colorPrimary;
+
+  &__ref {
+    color: $colorBlack;
+    font-size: 14px;
+    font-style: italic;
+  }
+
+  &__text {
+    &.doc-depth {
+      &-2 {
+        font-size: 38px;
+      }
+
+      &-3 {
+        font-size: 25px;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 20px;
+    display: block;
+    background: $colorSecondary;
+    content: '';
+  }
+
+  &.doc-depth {
+    &-2 {
+      border-bottom: 2px solid $colorSecondary;
+
+      &::before {
+        width: 20px;
+      }
+    }
+
+    &-3 {
+      &::before {
+        width: 10px;
+      }
+    }
+  }
+}

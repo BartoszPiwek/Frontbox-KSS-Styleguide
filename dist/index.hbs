@@ -13,21 +13,21 @@
 	<link rel="stylesheet" href="kss-assets/index.css">
 </head>
 
-<body class="doc-body">
-	<div class="page">
+<body class="doc-body" id="doc-body">
+	<div class="doc-page">
 
 		<aside class="doc-sidebar">
 			<nav class="doc-sidebar-nav" aria-label="Style Guide">
 				<ul class="doc-sidebar-nav__menu">
 
-					<li class="doc-sidebar-nav__item {{#if template.isHomepage}} is-active {{/if}}">
+					<li class="doc-sidebar-nav__item {{#if template.isHomepage}} doc-is-active {{/if}}">
 						<a class="doc-sidebar-nav__link" href="index.html">
 							Homepage
 						</a>
 					</li>
 
 					{{#each menu}}
-					<li class="doc-sidebar-nav__item {{#if isActive}} is-active {{/if}}">
+					<li class="doc-sidebar-nav__item {{#if isActive}} doc-is-active {{/if}}">
 						<a class="doc-sidebar-nav__link" href="section-{{referenceURI}}.html">
 							{{header}}
 						</a>
@@ -36,7 +36,7 @@
 						{{#if children}}
 						<ul class="doc-sidebar-nav__child">
 							{{#each children}}
-							<li class="doc-sidebar-nav__item sidebar-nav__item--depth-{{depth}}">
+							<li class="doc-sidebar-nav__item doc-depth-{{depth}}">
 								<a class="doc-sidebar-nav__link" href="section-{{../referenceURI}}.html#{{referenceURI}}">
 									{{header}}
 								</a>
@@ -68,18 +68,18 @@
 					{{header}}
 				</h1>
 				{{#if description}}
-				<div class="doc-main__description section__wrap markdown">{{{description}}}</div>
+				<div class="doc-main__description doc-wrap-section markdown">{{{description}}}</div>
 				{{/if}}
 				{{else}}
 
 				{{!-- Page content --}}
 				<section id="{{referenceURI}}" class="section section--depth-{{depth}}">
 
-					<a class="section-title depth-{{depth}}" href="#{{referenceURI}}">
-						<span class="section-title__text depth-{{depth}}">
+					<a class="doc-wrap-section doc-section-title doc-depth-{{depth}}" href="#{{referenceURI}}">
+						<span class="doc-section-title__text doc-depth-{{depth}}">
 							{{header}}
 						</span>
-						<span class="section-title__ref">
+						<span class="doc-section-title__ref">
 							{{#if @root.hasNumericReferences}}
 							#permalink
 							{{else}}
@@ -89,7 +89,7 @@
 					</a>
 
 					{{#if description}}
-					<div class="section-description markdown section__wrap">
+					<div class="section-description markdown doc-wrap-section">
 						{{{description}}}
 						{{#if source.filename}}
 						Source code located in file
@@ -101,21 +101,18 @@
 					</div>
 					{{/if}}
 
-					<div class="section__body">
+					<div class="section__body doc-wrap-section">
 						{{#if function}}
 						<div class="section-item">
-							<h3 class="section-item__title section__wrap">Function</h3>
-							<div class="section__wrap">
+							<p class="section-item__title">Function</h3>
 								<pre class="language-scss"><code class="language-scss select-all">{{{prism function}}}</code></pre>
-							</div>
 						</div>
 						{{/if}}
 
 						{{!-- Arguments --}}
 						{{#if arguments}}
 						<div class="section-item">
-							<h3 class="section-item__title section__wrap">Arguments</h3>
-							<div class="section__wrap">
+							<p class="section-item__title">Arguments</h3>
 								<table class="table">
 									<thead>
 										<td>Variable</td>
@@ -132,53 +129,42 @@
 										{{/kssArguments}}
 									</tbody>
 								</table>
-							</div>
 						</div>
 						{{/if}}
 
 						{{!-- Example --}}
 						{{#if usage}}
 						<div class="section-item">
-							<h3 class="section-item__title section__wrap">Usage</h3>
-							<div class="section__wrap">
+							<p class="section-item__title">Usage</h3>
 								<pre class="language-scss"><code class="language-scss select-all">{{{prism usage 'scss'}}}</code></pre>
-							</div>
 						</div>
 						{{/if}}
 
 						{{#if outputcss}}
 						<div class="section-item">
-							<h3 class="section-item__title section__wrap">Output</h3>
-							<div class="section__wrap">
+							<p class="section-item__title">Output</h3>
 								<pre class="language-scss"><code class="language-scss">{{{prism outputcss 'scss'}}}</code></pre>
-							</div>
 						</div>
 						{{/if}}
 
 						{{!-- Output --}}
 						{{#if output}}
 						<div class="section-item">
-							<h3 class="section-item__title section__wrap">Output</h3>
-							<div class="section__wrap">
+							<p class="section-item__title">Output</h3>
 								<pre class="language-none">
 									<iframe class="iframe" data-iframe="output"></iframe>
 									<div data-iframe-content="output">
 										{{{pug output '.debug-element, .debug-element__content'}}}
 									</div>
 								</pre>
-							</div>
-							<br>
-							<h4 class="section-item__title section__wrap">Pug</h4>
-							<div class="section__wrap">
+								<br>
+								<h4 class="section-item__title">Pug</h4>
 								<pre
 									class="language-pug"><code class="language-pug" data-language="pug">{{{prism output 'pug'}}}</code></pre>
-							</div>
-							<br>
-							<h4 class="section-item__title section__wrap">HTML</h4>
-							<div class="section__wrap">
+								<br>
+								<h4 class="section-item__title">HTML</h4>
 								<pre
 									class="language-html"><code class="language-html" data-language="html">{{{prism (pug output) 'html'}}}</code></pre>
-							</div>
 						</div>
 						{{/if}}
 
@@ -208,75 +194,75 @@
 					{{!-- Example code with modifiers and markups --}}
 					{{#if example}}
 					<div class="section-item">
-						<h3 class="section-item__title section__wrap">Example{{#if modifiers}}s{{/if}}</h3>
-						<div class="section__wrap kss-example-wrapper">
+						<p class="section-item__title doc-wrap-section">Example{{#if modifiers}}s{{/if}}</h3>
+							<div class="doc-wrap-section kss-example-wrapper">
 
-							{{#ifEquals depth 2}}
-							<div class="kss-example">
-								<div class="kss-output">
-									<div class="kss-output__title">
-										Default styling
-									</div>
-									<div class="kss-output__content">
-										<pre class="language-none">
+								{{#ifEquals depth 2}}
+								<div class="kss-example">
+									<div class="kss-output">
+										<div class="kss-output__title">
+											Default styling
+										</div>
+										<div class="kss-output__content">
+											<pre class="language-none">
 											<iframe class="iframe" data-iframe></iframe>
 											<div>{{{pug example}}}</div>
 										</pre>
+										</div>
 									</div>
+
+									<details class="kss-markup kss-style">
+										<summary>
+											{{#if markupFile }}
+											Markup: <code>{{markupFile}}</code>
+											{{else}}
+											Markup
+											{{/if}}
+										</summary>
+										<div class="markup-content">
+											<pre
+												class="language-pug"><code class="language-pug" data-language="pug">{{{prism markup 'pug'}}}</code></pre>
+											<pre
+												class="language-html"><code class="language-html" data-language="html">{{{prism (pug markup) 'html'}}}</code></pre>
+										</div>
+									</details>
 								</div>
+								{{/ifEquals}}
 
-								<details class="kss-markup kss-style">
-									<summary>
-										{{#if markupFile }}
-										Markup: <code>{{markupFile}}</code>
-										{{else}}
-										Markup
-										{{/if}}
-									</summary>
-									<div class="markup-content">
-										<pre
-											class="language-pug"><code class="language-pug" data-language="pug">{{{prism markup 'pug'}}}</code></pre>
-										<pre
-											class="language-html"><code class="language-html" data-language="html">{{{prism (pug markup) 'html'}}}</code></pre>
-									</div>
-								</details>
-							</div>
-							{{/ifEquals}}
-
-							{{#each modifiers}}
-							<div class="kss-example">
-								<div class="kss-output">
-									<div class="kss-output__title">
-										<code class="kss-code">{{name}}</code> {{{description}}}
-									</div>
-									<div class="kss-output__content">
-										<pre class="language-none">
+								{{#each modifiers}}
+								<div class="kss-example">
+									<div class="kss-output">
+										<div class="kss-output__title">
+											<code class="kss-code">{{name}}</code> {{{description}}}
+										</div>
+										<div class="kss-output__content">
+											<pre class="language-none">
 											<iframe class="iframe" data-iframe></iframe>
 											<div>{{{pug markup}}}</div>
 										</pre>
+										</div>
 									</div>
+
+									<details class="kss-markup kss-style">
+										<summary>
+											{{#if markupFile }}
+											Markup: <code>{{markupFile}}</code>
+											{{else}}
+											Markup
+											{{/if}}
+										</summary>
+										<div class="markup-content">
+											<pre
+												class="language-pug"><code class="language-pug" data-language="pug">{{{prism markup 'pug'}}}</code></pre>
+											<pre
+												class="language-html"><code class="language-html" data-language="html">{{{prism (pug markup) 'html'}}}</code></pre>
+										</div>
+									</details>
 								</div>
 
-								<details class="kss-markup kss-style">
-									<summary>
-										{{#if markupFile }}
-										Markup: <code>{{markupFile}}</code>
-										{{else}}
-										Markup
-										{{/if}}
-									</summary>
-									<div class="markup-content">
-										<pre
-											class="language-pug"><code class="language-pug" data-language="pug">{{{prism markup 'pug'}}}</code></pre>
-										<pre
-											class="language-html"><code class="language-html" data-language="html">{{{prism (pug markup) 'html'}}}</code></pre>
-									</div>
-								</details>
+								{{/each}}
+
 							</div>
-
-							{{/each}}
-
-						</div>
 					</div>
 					{{/if}}
 
@@ -297,9 +283,9 @@
 	<script src="kss-assets/scrollspy.js"></script>
 	<script src="kss-assets/kss-markup.js"></script>
 	<script>
-		var spy = new ScrollSpy('#body', {
-			nav: '.sidebar-nav__child > li > a',
-			className: 'is-viewed'
+		var spy = new ScrollSpy('#doc-body', {
+			nav: '.doc-sidebar-nav__child > li > a',
+			className: 'doc-is-viewed'
 		});
 		var kssFullScreen = new KssFullScreen({
 			idPrefix: 'kss-fullscreen-',

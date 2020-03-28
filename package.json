@@ -19,12 +19,12 @@
   "license": "ISC",
   "devDependencies": {
     "kss": "^3.0.0",
-    "node-sass": "4.13.1"
+    "node-sass": "4.13.1",
+    "reset-css": "^5.0.1"
   },
   "dependencies": {
     "pug": "^2.0.4",
     "prismjs": "^1.19.0",
-    "highlight.js": "^9.18.1",
-    "reset-css": "^5.0.1"
+    "highlight.js": "^9.18.1"
   }
 }

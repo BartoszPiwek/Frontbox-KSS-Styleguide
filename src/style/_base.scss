@@ -5,8 +5,7 @@ html {
 }
 
 html,
-body,
-.page {
+body {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
@@ -14,11 +13,14 @@ body,
   -webkit-font-smoothing: antialiased;
 }
 
-.page {
-  width: 100%;
-  max-width: 1300px;
+.doc-page {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 100%;
+  width: 1300px;
   margin: 0 auto;
   padding: 0 10px;
+  flex-direction: row;
 }
 
 body {
@@ -30,9 +32,9 @@ h3 {
 }
 
 .doc-main {
-  width: calc(100% - 202px);
-  margin-left: auto;
+  flex: 0 0 1100px;
   padding: 40px 0;
+  border-left: 2px solid $colorSecondary;
 
   &__header {
     color: $colorPrimary;
@@ -51,10 +53,6 @@ h3 {
 }
 
 .section {
-  &__wrap {
-    padding-left: 60px;
-  }
-
   &-description {
     margin: 20px 0;
     line-height: 22px;
@@ -78,7 +76,7 @@ h3 {
       white-space: nowrap;
 
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         bottom: -2px;
         width: 100%;
@@ -89,15 +87,12 @@ h3 {
   }
 
   &-item {
-    margin: 20px 0 30px;
+    margin: 30px 0;
 
     &__title {
       display: inline-block;
-      margin: 15px 0 20px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      background: $colorWhite;
-      font-size: 21px;
+      margin-bottom: 15px;
+      font-size: 18px;
     }
   }
 }
@@ -143,50 +138,8 @@ code {
   }
 }
 
-.section-title {
-  display: block;
-  position: sticky;
-  z-index: 3;
-  top: 0;
-  left: 0;
-  margin: 30px 0 35px;
-  padding: 10px 10px 10px 0;
-  background: $colorWhite;
-  box-shadow: 5px 5px 10px #f3f7fb;
-
-  &__ref {
-    color: $colorBlack;
-    font-size: 14px;
-    font-style: italic;
-  }
-
-  &__text {
-    &.depth {
-      &-2 {
-        font-size: 38px;
-      }
-
-      &-3 {
-        font-size: 25px;
-      }
-    }
-  }
-
-  &__link {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  &.depth {
-    &-2 {
-      border-left: 20px solid $colorSecondary;
-      border-bottom: 2px solid $colorSecondary;
-    }
-
-    &-3 {
-      border-left: 10px solid $colorSecondary;
-    }
+.doc {
+  &-wrap-section {
+    padding-left: 60px;
   }
 }
