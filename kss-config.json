@@ -9,7 +9,8 @@
     "Icons",
     "Usage",
     "Arguments",
-    "Title"
+    "Title",
+    "Style"
   ],
   "extend": "scr/helpers",
   "destination": "playground/styleguide",

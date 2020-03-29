@@ -24,4 +24,8 @@
     font-style: italic;
     line-height: 5px;
   }
+
+  [class^='language-'] {
+    margin: 6px 0 !important;
+  }
 }

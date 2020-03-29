@@ -68,7 +68,7 @@
 					{{header}}
 				</h1>
 				{{#if description}}
-				<div class="doc-main__description doc-wrap-section markdown">{{{description}}}</div>
+				<div class="doc-main__description doc-wrap-section doc-markdown">{{{description}}}</div>
 				{{/if}}
 				{{else}}
 
@@ -80,24 +80,23 @@
 							{{header}}
 						</span>
 						<span class="doc-section-title__ref">
-							{{#if @root.hasNumericReferences}}
-							#permalink
-							{{else}}
-							#{{reference}}
+							{{#if source.filename}}
+							{{source.filename}}
 							{{/if}}
 						</span>
 					</a>
 
 					{{#if description}}
-					<div class="section-description markdown doc-wrap-section">
-						{{{description}}}
-						{{#if source.filename}}
-						Source code located in file
-						<a href="https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/{{source.filename}}#L{{source.line}}"
-							target="_blank">
-							{{source.filename}}
-						</a>.
-						{{/if}}
+					<div class="section-description  doc-wrap-section">
+						<div class="doc-markdown">
+							{{{description}}}
+
+							{{#if style}}
+							<p>Before using module remember to include base style.</p>
+							<pre class="language-scss"><code class="language-scss select-all">{{{prism style 'scss'}}}</code></pre>
+							{{/if}}
+
+						</div>
 					</div>
 					{{/if}}
 
@@ -189,6 +188,7 @@
 							{{/each}}
 						</ul>
 						{{/if}}
+
 					</div>
 
 					{{!-- Example code with modifiers and markups --}}

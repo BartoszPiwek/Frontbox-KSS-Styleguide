@@ -1,6 +1,6 @@
 {
   "name": "@bpiwek/frontbox-kss-styleguide",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Fronbox KSS Styleguide",
   "scripts": {
     "playground": "yarn build && kss playground/ --config kss-config.json",

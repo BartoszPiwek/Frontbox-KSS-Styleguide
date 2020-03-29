@@ -943,6 +943,9 @@ code {
   font-style: italic;
   line-height: 5px; }
 
+.doc-markdown [class^='language-'] {
+  margin: 6px 0 !important; }
+
 .output {
   margin: 0 auto;
   padding: 14px;

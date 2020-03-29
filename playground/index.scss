@@ -2,39 +2,39 @@
 Wrap
 
 Include wrap function inside container class to hold content in maximize width with space aside corner.
-Space can be created in asix x (`padding left` and `padding-right`).<br>
-Default class for this function named `.wrap` and is located in 
-[style/_tools.scss](https://github.com/BartoszPiwek/FrontBox-CSS/tree/master/src/style/_tools.scss) file. 
-Prepared modifications are `navbar` and `footer`.
+Space can be created in asix x (`padding left` and `padding-right`).
+> Set <b>true</b> for parameter <code>$hasParentHover</code> to create trigger hover class `&--hover` for any parent element. 
 
 Function:
 add-wrap($max-width, $padding-x);
-
-Arguments:
-$max-width : numberPixel
-$padding-x : numberPixel? : 0
+// $max-width : pixels
+// $padding-x? : pixels
 
 Usage:
 .wrap {
  @include add-wrap(1024px, 20px);
 }
 
-Output:
-.wrap
+Style:
+@include wrap-style;
 
 Style guide: Modules.wrap
 */
 
 /*
-Style
+Triangle
 
-Inject `.wrap` style.
+Create triangle element.
 
 Function:
-wrap-style;
+add-triangle($width, $height, $position, $color);
+// $width : number
+// $height : number
+// $position : 'up' | 'right' | 'down' | 'left'
+// $color : string
 
 Usage:
-@include wrap-style;
+@include add-triangle(10, 10, 'top', #000);
 
-Style guide: Modules.wrap.style
+Style guide: Modules.Triangle
 */
