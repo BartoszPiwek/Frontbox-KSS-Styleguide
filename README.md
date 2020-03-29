@@ -17,6 +17,30 @@ or
 yarn add @bpiwek/frontbox-kss-styleguide
 ```
 
+## Usage
+Be sure to be familiar with [kss-node](https://kss-node.github.io/kss-node/).
+
+Create config file `kss-config.json` in your root project folder and past below config:
+```json
+{
+  "title": "...",
+  "builder": "node_modules/@bpiwek/frontbox-kss-styleguide/dist/",
+  "extend": "node_modules/@bpiwek/frontbox-kss-styleguide/dist/helpers/",
+  "destination": "documentation/",
+  "homepage": "src/README.md",
+  "custom": [
+    "Function",
+    "Output",
+    "OutputCSS",
+    "Icons",
+    "Usage",
+    "Arguments",
+    "Title",
+    "Style"
+  ]
+}
+```
+
 ## Develop
 Make sure to install this fallowing plugins for Visual Code Studio before making changes.
 
