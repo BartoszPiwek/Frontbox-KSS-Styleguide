@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Fronbox KSS Styleguide",
   "scripts": {
-    "start": "yarn build && kss playground/ --config kss-config.json",
+    "playground": "yarn build && kss playground/ --config kss-config.json",
     "build": "node-sass src/style/index.scss dist/kss-assets/index.css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "publish": "npm publish --access public"
