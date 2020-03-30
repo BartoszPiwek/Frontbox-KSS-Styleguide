@@ -33,7 +33,6 @@ class KssBuilderScheibo extends KssBuilderHandlebars {
   prepare(styleGuide) {
     return super.prepare(styleGuide).then(styleGuide => {
       require('./helpers/prism')(this.Handlebars);
-      require('./helpers/arguments')(this.Handlebars);
       require('./helpers/pug')(this.Handlebars);
       return styleGuide;
     });
