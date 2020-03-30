@@ -12,7 +12,7 @@
     "Title",
     "Style"
   ],
-  "extend": "scr/helpers",
+  "extend": "dist/helpers",
   "destination": "playground/styleguide",
   "homepage": "playground/README.md"
 }

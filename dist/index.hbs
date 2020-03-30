@@ -197,7 +197,6 @@
 						<p class="section-item__title doc-wrap-section">Example{{#if modifiers}}s{{/if}}</h3>
 							<div class="doc-wrap-section kss-example-wrapper">
 
-								{{#ifEquals depth 2}}
 								<div class="kss-example">
 									<div class="kss-output">
 										<div class="kss-output__title">
@@ -206,7 +205,12 @@
 										<div class="kss-output__content">
 											<pre class="language-none">
 											<iframe class="iframe" data-iframe></iframe>
-											<div>{{{pug example}}}</div>
+											<div>
+												<style>
+													{{{scss example}}}
+												</style>
+													{{{example}}}
+											</div>
 										</pre>
 										</div>
 									</div>
@@ -219,19 +223,18 @@
 											Markup
 											{{/if}}
 										</summary>
-										<div class="markup-content">
+										{{!-- <div class="markup-content">
 											<pre
 												class="language-pug"><code class="language-pug" data-language="pug">{{{prism markup 'pug'}}}</code></pre>
 											<pre
 												class="language-html"><code class="language-html" data-language="html">{{{prism (pug markup) 'html'}}}</code></pre>
-										</div>
+										</div> --}}
 									</details>
 								</div>
-								{{/ifEquals}}
 
 								{{#each modifiers}}
 								<div class="kss-example">
-									<div class="kss-output">
+									{{!-- <div class="kss-output">
 										<div class="kss-output__title">
 											<code class="kss-code">{{name}}</code> {{{description}}}
 										</div>
@@ -241,7 +244,7 @@
 											<div>{{{pug markup}}}</div>
 										</pre>
 										</div>
-									</div>
+									</div> --}}
 
 									<details class="kss-markup kss-style">
 										<summary>
@@ -251,12 +254,12 @@
 											Markup
 											{{/if}}
 										</summary>
-										<div class="markup-content">
+										{{!-- <div class="markup-content">
 											<pre
 												class="language-pug"><code class="language-pug" data-language="pug">{{{prism markup 'pug'}}}</code></pre>
 											<pre
 												class="language-html"><code class="language-html" data-language="html">{{{prism (pug markup) 'html'}}}</code></pre>
-										</div>
+										</div> --}}
 									</details>
 								</div>
 
@@ -301,6 +304,22 @@
 		});
 	</script>
 	{{{scripts}}}
+
+	<script>
+		var $iframe = $("[data-iframe]");
+		$iframe.each(function (index, element) {
+			var
+				$this = $(this),
+				$content = $this.next(),
+				$head = $this.contents().find("head");
+			$head.append('<meta name="viewport" content="width=device-width, initial-scale=1">');
+			$this.contents().find("body").append($content);
+
+			setTimeout(function () {
+				$this.css('height', $this[0].contentWindow.document.documentElement.scrollHeight + 'px');
+			}, 1000);
+		});
+	</script>
 </body>
 
 </html>

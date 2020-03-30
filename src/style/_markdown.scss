@@ -16,13 +16,13 @@
   }
 
   blockquote {
-    margin: 4px 0;
-    padding: 10px 0 10px 10px;
+    margin: 6px 0;
+    padding: 4px 10px;
     border-left: 2px solid $colorSecondary;
     background: transparentize($colorSecondary, 0.8);
     font-size: small;
     font-style: italic;
-    line-height: 5px;
+    line-height: 13px;
   }
 
   [class^='language-'] {
