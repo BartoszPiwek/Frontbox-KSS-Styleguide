@@ -191,43 +191,39 @@
 
 					</div>
 
-					{{!-- Example code with modifiers and markups --}}
 					{{#if example}}
 					<div class="section-item">
 						<p class="section-item__title doc-wrap-section">Example{{#if modifiers}}s{{/if}}</h3>
 							<div class="doc-wrap-section kss-example-wrapper">
 
-								<div class="kss-example">
-									<div class="kss-output">
-										<div class="kss-output__title">
-											Default styling
-										</div>
-										<div class="kss-output__content">
-											<pre class="language-none">
-											<iframe class="iframe" data-iframe></iframe>
-											<div>
-													{{{htmlScssStyleToCSS example}}}
-													{{{example}}}
-											</div>
-										</pre>
-										</div>
+								<div class="tabs">
+									<div class="tabs-header">
+										<button class="tabs-header__item is-active" type="button" tabItem="0">
+											Preview
+										</button>
+										<button class="tabs-header__item" type="button" tabItem="1">
+											Source code
+										</button>
 									</div>
+									<div class="tabs-content">
 
-									<details class="kss-markup kss-style">
-										<summary>
-											{{#if markupFile }}
-											Markup: <code>{{markupFile}}</code>
-											{{else}}
-											Markup
-											{{/if}}
-										</summary>
-										<div class="markup-content">
-											{{!-- <pre
-												class="language-pug"><code class="language-pug" data-language="pug">{{{prism markup 'pug'}}}</code></pre> --}}
+										<div class="tabs-content__item is-active" tabItem="0">
+											<pre class="language-none">
+												<div class="iframe-content">
+													<iframe class="iframe-content__iframe"></iframe>
+													<div class="iframe-content__content">
+															{{{htmlScssStyleToCSS example}}}
+															{{{example}}}
+													</div>
+												</div>
+											</pre>
+										</div>
+
+										<div class="tabs-content__item" tabItem="1">
 											<pre
 												class="language-html"><code class="language-html" data-language="html">{{{prism markup 'html'}}}</code></pre>
 										</div>
-									</details>
+									</div>
 								</div>
 
 								{{#each modifiers}}
@@ -303,21 +299,7 @@
 	</script>
 	{{{scripts}}}
 
-	<script>
-		var $iframe = $("[data-iframe]");
-		$iframe.each(function (index, element) {
-			var
-				$this = $(this),
-				$content = $this.next(),
-				$head = $this.contents().find("head");
-			$head.append('<meta name="viewport" content="width=device-width, initial-scale=1">');
-			$this.contents().find("body").append($content);
-
-			setTimeout(function () {
-				$this.css('height', $this[0].contentWindow.document.documentElement.scrollHeight + 'px');
-			}, 1000);
-		});
-	</script>
+	<script src="kss-assets/index.js"></script>
 </body>
 
 </html>

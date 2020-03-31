@@ -1,0 +1,42 @@
+.tabs {
+  overflow: hidden;
+
+  &-header {
+    position: relative;
+    z-index: 1;
+    padding: 0 5px;
+    background: #fff;
+    box-shadow: 0 4px 8px 0 transparentize($colorBlack, 0.9);
+
+    &__item {
+      cursor: pointer;
+      font-size: 16px;
+      padding-top: 4px;
+      border: 0;
+      background: transparent;
+      color: $colorBlack;
+      border-bottom: 4px solid transparent;
+
+      &.is-active {
+        cursor: default;
+        border-bottom: 4px solid $colorSecondary;
+      }
+
+      &:focus,
+      &:hover,
+      &:active {
+        outline: none;
+      }
+    }
+  }
+
+  &-content {
+    &__item {
+      display: none;
+
+      &.is-active {
+        display: block;
+      }
+    }
+  }
+}

@@ -18,25 +18,9 @@ Usage:
 Style:
 @include wrap-style;
 
+Markup: grid.html
+
 Style guide: Modules.wrap
-*/
-
-/*
-Triangle
-
-Create triangle element.
-
-Function:
-add-triangle($width, $height, $position, $color);
-// $width : number
-// $height : number
-// $position : 'up' | 'right' | 'down' | 'left'
-// $color : string
-
-Usage:
-@include add-triangle(10, 10, 'top', #000);
-
-Style guide: Modules.Triangle
 */
 
 /*

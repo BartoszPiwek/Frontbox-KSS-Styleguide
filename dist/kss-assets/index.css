@@ -946,30 +946,6 @@ code {
 .doc-markdown [class^='language-'] {
   margin: 6px 0 !important; }
 
-.output {
-  margin: 0 auto;
-  padding: 14px;
-  overflow: hidden;
-  background: #379683; }
-
-.iframe {
-  height: 0;
-  animation-name: debug-responsive;
-  animation-duration: 8s;
-  animation-play-state: running;
-  animation-timing-function: ease-out;
-  animation-delay: 0s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  border: 0;
-  animation-fill-mode: none; }
-
-@keyframes debug-responsive {
-  from {
-    width: 100%; }
-  to {
-    width: 320px; } }
-
 .doc-sidebar {
   position: sticky;
   flex: 0 0 200px;
@@ -1068,3 +1044,73 @@ code {
       width: 20px; }
   .doc-section-title.doc-depth-3::before {
     width: 10px; }
+
+.tabs {
+  overflow: hidden; }
+  .tabs-header {
+    position: relative;
+    z-index: 1;
+    padding: 0 5px;
+    background: #fff;
+    box-shadow: 0 4px 8px 0 rgba(27, 23, 22, 0.1); }
+    .tabs-header__item {
+      cursor: pointer;
+      font-size: 16px;
+      padding-top: 4px;
+      border: 0;
+      background: transparent;
+      color: #1b1716;
+      border-bottom: 4px solid transparent; }
+      .tabs-header__item.is-active {
+        cursor: default;
+        border-bottom: 4px solid #379683; }
+      .tabs-header__item:focus, .tabs-header__item:hover, .tabs-header__item:active {
+        outline: none; }
+  .tabs-content__item {
+    display: none; }
+    .tabs-content__item.is-active {
+      display: block; }
+
+@keyframes iframeContentLoading {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg); }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg); } }
+
+@keyframes iframeContentResponsive {
+  from {
+    width: 100%; }
+  to {
+    width: 320px; } }
+
+.iframe-content {
+  position: relative; }
+  .iframe-content:not(.is-active):before {
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: #05386b;
+    content: '';
+    animation-name: iframeContentLoading;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite; }
+  .iframe-content:not(.is-active) .iframe-content__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; }
+  .iframe-content__iframe {
+    height: 0;
+    animation-name: iframeContentResponsive;
+    animation-duration: 8s;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    border: 0;
+    animation-fill-mode: none; }
