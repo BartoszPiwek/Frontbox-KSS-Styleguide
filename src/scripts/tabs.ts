@@ -1,11 +1,22 @@
+export class ITabs {
+  element: Element;
+  onActive?: Function;
+}
+
 export class Tabs {
   private data: Element;
+  private onActive: Function;
+
   private links: HTMLCollectionOf<HTMLButtonElement>;
   private contents: HTMLCollectionOf<Element>;
   private activeTab: number = 0;
 
-  constructor(data: Element) {
-    this.data = data;
+  constructor(data: ITabs) {
+    this.data = data.element;
+
+    if (data.onActive) {
+      this.onActive = data.onActive;
+    }
 
     this.start();
   }
@@ -32,6 +43,10 @@ export class Tabs {
 
     this.links[index].classList.add('is-active');
     this.contents[index].classList.add('is-active');
+
+    if (this.onActive) {
+      this.onActive(index);
+    }
 
     this.activeTab = index;
   }

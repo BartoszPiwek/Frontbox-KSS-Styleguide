@@ -7,12 +7,15 @@ var IframeContent = /** @class */ (function () {
         this.start();
     }
     IframeContent.prototype.start = function () {
-        var iframeElement = this.data.getElementsByClassName('iframe-content__iframe')[0];
+        this.iframeElement = this.data.getElementsByClassName('iframe-content__iframe')[0];
         var contentElement = this.data.getElementsByClassName('iframe-content__content')[0];
-        iframeElement.contentWindow.document.body.innerHTML = contentElement.innerHTML;
+        this.iframeElement.contentWindow.document.body.innerHTML = contentElement.innerHTML;
         contentElement.remove();
-        iframeElement.style.height = iframeElement.contentWindow.document.documentElement.scrollHeight + 'px';
+        this.recalculateHeight();
         this.data.classList.add('is-active');
+    };
+    IframeContent.prototype.recalculateHeight = function () {
+        this.iframeElement.style.height = this.iframeElement.contentWindow.document.documentElement.scrollHeight + 'px';
     };
     return IframeContent;
 }());
@@ -24,23 +27,41 @@ exports.__esModule = true;
 var tabs_1 = require("./tabs");
 var iframe_content_1 = require("./iframe-content");
 window.onload = function () {
+    var iframes = document.getElementsByClassName('iframe-content');
+    var iframesData = Array(iframes.length - 1);
+    Array.from(iframes).forEach(function (element, index) {
+        iframesData[index] = new iframe_content_1.IframeContent(element);
+    });
     var tabs = document.getElementsByClassName('tabs');
     Array.from(tabs).forEach(function (element) {
-        new tabs_1.Tabs(element);
-    });
-    var iframes = document.getElementsByClassName('iframe-content');
-    Array.from(iframes).forEach(function (element) {
-        new iframe_content_1.IframeContent(element);
+        new tabs_1.Tabs({
+            element: element,
+            onActive: function (index) {
+                if (!iframesData[index]) {
+                    return;
+                }
+                iframesData[index].recalculateHeight();
+            }
+        });
     });
 };
 
 },{"./iframe-content":1,"./tabs":3}],3:[function(require,module,exports){
 "use strict";
 exports.__esModule = true;
+var ITabs = /** @class */ (function () {
+    function ITabs() {
+    }
+    return ITabs;
+}());
+exports.ITabs = ITabs;
 var Tabs = /** @class */ (function () {
     function Tabs(data) {
         this.activeTab = 0;
-        this.data = data;
+        this.data = data.element;
+        if (data.onActive) {
+            this.onActive = data.onActive;
+        }
         this.start();
     }
     Tabs.prototype.start = function () {
@@ -61,6 +82,9 @@ var Tabs = /** @class */ (function () {
         this.contents[this.activeTab].classList.remove('is-active');
         this.links[index].classList.add('is-active');
         this.contents[index].classList.add('is-active');
+        if (this.onActive) {
+            this.onActive(index);
+        }
         this.activeTab = index;
     };
     Tabs.prototype.bindLink = function (element) {

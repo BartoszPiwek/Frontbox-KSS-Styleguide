@@ -49,13 +49,20 @@
 
   &__iframe {
     height: 0;
-    animation-name: iframeContentResponsive;
-    animation-duration: 8s;
-    animation-timing-function: ease-out;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    width: 100%;
     border: 0;
-    animation-fill-mode: none;
+  }
+
+  &--responsive {
+    .iframe-content {
+      &__iframe {
+        animation-name: iframeContentResponsive;
+        animation-duration: 8s;
+        animation-timing-function: ease-out;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+    }
   }
 }
