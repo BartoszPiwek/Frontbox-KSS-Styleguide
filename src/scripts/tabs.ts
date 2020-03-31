@@ -1,11 +1,13 @@
 export class ITabs {
   element: Element;
   onActive?: Function;
+  afterInit?: Function;
 }
 
 export class Tabs {
   private data: Element;
   private onActive: Function;
+  private afterInit: Function;
 
   private links: HTMLCollectionOf<HTMLButtonElement>;
   private contents: HTMLCollectionOf<Element>;
@@ -18,6 +20,10 @@ export class Tabs {
       this.onActive = data.onActive;
     }
 
+    if (data.afterInit) {
+      this.afterInit = data.afterInit;
+    }
+
     this.start();
   }
 
@@ -28,6 +34,10 @@ export class Tabs {
     Array.from(this.links).forEach(link => {
       this.bindLink(link);
     });
+
+    if (this.afterInit) {
+      this.afterInit();
+    }
   }
 
   private onClick(e: MouseEvent) {
@@ -46,6 +56,12 @@ export class Tabs {
 
     if (this.onActive) {
       this.onActive(index);
+    }
+
+    const iframeElement = this.contents[index].getElementsByClassName('iframe-content__iframe')[0] as HTMLIFrameElement;
+
+    if (iframeElement) {
+      iframeElement.style.height = iframeElement.contentWindow.document.documentElement.scrollHeight + 'px';
     }
 
     this.activeTab = index;

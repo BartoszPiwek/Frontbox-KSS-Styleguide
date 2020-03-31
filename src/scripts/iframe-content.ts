@@ -15,12 +15,9 @@ export class IframeContent {
     this.iframeElement.contentWindow.document.body.innerHTML = contentElement.innerHTML;
 
     contentElement.remove();
-    this.recalculateHeight();
+
+    this.iframeElement.style.height = this.iframeElement.contentWindow.document.documentElement.scrollHeight + 'px';
 
     this.data.classList.add('is-active');
-  }
-
-  public recalculateHeight() {
-    this.iframeElement.style.height = this.iframeElement.contentWindow.document.documentElement.scrollHeight + 'px';
   }
 }

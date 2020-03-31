@@ -1,42 +1,16 @@
-/* jshint node: true */
-'use strict';
+const KssBuilderHandlebars = require('kss/builder/handlebars');
 
-let KssBuilderHandlebars = require('kss/builder/handlebars');
-
-class KssBuilderScheibo extends KssBuilderHandlebars {
-
+class FrontboxKSSSlyleguide extends KssBuilderHandlebars {
   constructor() {
     super();
-
-    this.addOptionDefinitions({
-      requirejs: {
-        group: 'Style guide:',
-        string: true
-      }
-    });
-
-    this.addOptionDefinitions({
-      bodyclass: {
-        group: 'Style guide:',
-        string: true
-      }
-    });
-
-    this.addOptionDefinitions({
-      htmllang: {
-        group: 'Style guide:',
-        string: true
-      }
-    });
   }
 
   prepare(styleGuide) {
     return super.prepare(styleGuide).then(styleGuide => {
       require('./helpers/prism')(this.Handlebars);
-      require('./helpers/pug')(this.Handlebars);
       return styleGuide;
     });
   }
 }
 
-module.exports = KssBuilderScheibo;
+module.exports = FrontboxKSSSlyleguide;

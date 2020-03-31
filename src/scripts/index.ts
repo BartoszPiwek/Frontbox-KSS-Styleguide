@@ -1,27 +1,26 @@
 import { Tabs } from './tabs';
 import { IframeContent } from './iframe-content';
+const ScrollSpy = require('scrollspy-js');
 
 window.onload = () => {
+  var spy = new ScrollSpy('#doc-body', {
+    nav: '.doc-sidebar-nav__child > li > a',
+    className: 'doc-is-viewed'
+  });
+
   const iframes = document.getElementsByClassName('iframe-content');
 
-  const iframesData: Array<IframeContent> = Array(iframes.length - 1);
+  let iframesData: Array<IframeContent> = [];
 
   Array.from(iframes).forEach((element, index) => {
-    iframesData[index] = new IframeContent(element);
+    iframesData.push(new IframeContent(element));
   });
 
   const tabs = document.getElementsByClassName('tabs');
 
-  Array.from(tabs).forEach(element => {
+  Array.from(tabs).forEach((tab, tabIndex) => {
     new Tabs({
-      element: element,
-      onActive(index: number) {
-        if (!iframesData[index]) {
-          return;
-        }
-
-        iframesData[index].recalculateHeight();
-      }
+      element: tab,
     });
   });
 };

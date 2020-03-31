@@ -1,9 +1,8 @@
 const Prism = require("prismjs");
 require("prismjs/components/prism-scss");
-require("prismjs/components/prism-pug");
 
-module.exports = function(Handlebars) {
-	Handlebars.registerHelper("prism", function(value, lang) {
+module.exports = function (Handlebars) {
+	Handlebars.registerHelper("prism", function (value, lang) {
 		if (lang && typeof lang === "string") {
 			lang = lang;
 		} else {

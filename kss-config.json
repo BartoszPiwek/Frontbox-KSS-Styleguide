@@ -4,12 +4,8 @@
   "source": "assets/",
   "custom": [
     "Function",
-    "Output",
-    "OutputCSS",
-    "Icons",
-    "Usage",
-    "Title",
-    "Style"
+    "Style",
+    "Usage"
   ],
   "extend": "dist/helpers",
   "destination": "playground/styleguide",

@@ -1,26 +1,11 @@
 /*
-Wrap
+Square
 
-Include wrap function inside container class to hold content in maximize width with space aside corner.
-Space can be created in asix x (`padding left` and `padding-right`).
-> Set <b>true</b> for parameter <code>$hasParentHover</code> to create trigger hover class `&--hover` for any parent element. 
+Create square element. Child element have container size.
 
-Function:
-add-wrap($max-width, $padding-x);
-// $max-width : pixels
-// $padding-x? : pixels
+Markup: square.html
 
-Usage:
-.wrap {
- @include add-wrap(1024px, 20px);
-}
-
-Style:
-@include wrap-style;
-
-Markup: grid.html
-
-Style guide: Modules.wrap
+Style guide: Blocks.square
 */
 
 /*
@@ -30,5 +15,5 @@ Create square element. Child element have container size.
 
 Markup: square.html
 
-Style guide: Blocks.square
+Style guide: Blocks.square2
 */

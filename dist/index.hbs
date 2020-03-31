@@ -55,8 +55,10 @@
 			<div class="doc-main__container">
 				{{#if template.isHomepage}}
 				{{#if homepage}}
-				<div class="doc-markdown">
-					{{{homepage}}}
+				<div class="doc-wrap-section">
+					<div class="markdown-body">
+						{{{homepage}}}
+					</div>
 				</div>
 				{{/if}}
 				{{else}}
@@ -146,27 +148,6 @@
 						</div>
 						{{/if}}
 
-						{{!-- Output --}}
-						{{#if output}}
-						<div class="section-item">
-							<p class="section-item__title">Output</h3>
-								<pre class="language-none">
-									<iframe class="iframe" data-iframe="output"></iframe>
-									<div data-iframe-content="output">
-										{{{pug output '.debug-element, .debug-element__content'}}}
-									</div>
-								</pre>
-								<br>
-								<h4 class="section-item__title">Pug</h4>
-								<pre
-									class="language-pug"><code class="language-pug" data-language="pug">{{{prism output 'pug'}}}</code></pre>
-								<br>
-								<h4 class="section-item__title">HTML</h4>
-								<pre
-									class="language-html"><code class="language-html" data-language="html">{{{prism (pug output) 'html'}}}</code></pre>
-						</div>
-						{{/if}}
-
 						{{#if colors }}
 						<ul class="kss-colors">
 							{{#each colors}}
@@ -241,39 +222,6 @@
 									</div>
 								</div>
 
-								{{#each modifiers}}
-								<div class="kss-example">
-									{{!-- <div class="kss-output">
-										<div class="kss-output__title">
-											<code class="kss-code">{{name}}</code> {{{description}}}
-										</div>
-										<div class="kss-output__content">
-											<pre class="language-none">
-											<iframe class="iframe" data-iframe></iframe>
-											<div>{{{pug markup}}}</div>
-										</pre>
-										</div>
-									</div> --}}
-
-									<details class="kss-markup kss-style">
-										<summary>
-											{{#if markupFile }}
-											Markup: <code>{{markupFile}}</code>
-											{{else}}
-											Markup
-											{{/if}}
-										</summary>
-										{{!-- <div class="markup-content">
-											<pre
-												class="language-pug"><code class="language-pug" data-language="pug">{{{prism markup 'pug'}}}</code></pre>
-											<pre
-												class="language-html"><code class="language-html" data-language="html">{{{prism (pug markup) 'html'}}}</code></pre>
-										</div> --}}
-									</details>
-								</div>
-
-								{{/each}}
-
 							</div>
 					</div>
 					{{/if}}
@@ -287,32 +235,6 @@
 			</div>
 		</main>
 	</div>
-
-	<!-- SCRIPTS -->
-	<script src="kss-assets/kss.js"></script>
-	<script src="kss-assets/kss-fullscreen.js"></script>
-	<script src="kss-assets/kss-guides.js"></script>
-	<script src="kss-assets/scrollspy.js"></script>
-	<script src="kss-assets/kss-markup.js"></script>
-	<script>
-		var spy = new ScrollSpy('#doc-body', {
-			nav: '.doc-sidebar-nav__child > li > a',
-			className: 'doc-is-viewed'
-		});
-		var kssFullScreen = new KssFullScreen({
-			idPrefix: 'kss-fullscreen-',
-			bodyClass: 'kss-fullscreen-mode',
-			elementClass: 'is-fullscreen'
-		});
-		var kssGuides = new KssGuides({
-			bodyClass: 'kss-guides-mode'
-		});
-		var kssMarkup = new KssMarkup({
-			bodyClass: 'kss-markup-mode',
-			detailsClass: 'kss-markup'
-		});
-	</script>
-	{{{scripts}}}
 
 	<script src="kss-assets/index.js"></script>
 </body>
