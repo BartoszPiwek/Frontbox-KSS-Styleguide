@@ -1,3 +1,12 @@
+// Comment
+
+/* 
+Multi comment
+*/
 @mixin foo {
+  color: red;
+}
+
+* {
   color: red;
 }

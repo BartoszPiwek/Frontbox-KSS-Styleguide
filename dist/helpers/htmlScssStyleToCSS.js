@@ -1,4 +1,5 @@
 const sass = require("node-sass");
+const stripCssComments = require('strip-css-comments');
 
 module.exports = function (Handlebars) {
 	Handlebars.registerHelper("htmlScssStyleToCSS", function (htmlPartial) {
@@ -14,6 +15,9 @@ module.exports = function (Handlebars) {
 			data: styleRegexResult[1]
 		});
 
-		return `<style>${sassOutput.css}</style>`;
+
+		const css = stripCssComments(sassOutput.css.toString('utf8'));
+
+		return `<style>${css}</style>`;
 	});
 };
