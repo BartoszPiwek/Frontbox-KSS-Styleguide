@@ -1,5 +1,6 @@
 import { Tabs } from './tabs';
 import { IframeContent } from './iframe-content';
+import interact from 'interactjs'
 const ScrollSpy = require('scrollspy-js');
 
 window.onload = () => {
@@ -19,16 +20,27 @@ window.onload = () => {
 
   Array.from(tabs).forEach((tab, tabIndex) => {
     new Tabs({
-      element: tab,
-      onChange(link, content) {
-        const hasLinkResponsive = link.getAttribute('tabResponsive') === 'true';
-
-        if (hasLinkResponsive) {
-          content.classList.add('iframe-content--responsive');
-        } else {
-          content.classList.remove('iframe-content--responsive');
-        }
-      }
+      element: tab
     });
   });
+
+  interact('.iframe-content__iframe')
+    .resizable({
+      edges: { right: true, left: true },
+      listeners: {
+        move(event) {
+          var target = event.target
+          target.style.width = event.rect.width + 'px'
+        }
+      },
+      modifiers: [
+        interact.modifiers.restrictEdges({
+          outer: 'parent'
+        }),
+        interact.modifiers.restrictSize({
+          min: { width: 350, height: null }
+        })
+      ],
+      inertia: true
+    })
 };

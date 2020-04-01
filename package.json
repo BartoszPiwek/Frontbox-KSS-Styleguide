@@ -1,6 +1,6 @@
 {
   "name": "@bpiwek/frontbox-kss-styleguide",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Fronbox KSS Styleguide",
   "scripts": {
     "playground": "yarn style && yarn scripts && kss playground/ --config kss-config.json",
@@ -22,6 +22,7 @@
     "@types/jquery": "^3.3.34",
     "browserify": "^16.5.1",
     "github-markdown-css": "^4.0.0",
+    "interactjs": "^1.9.7",
     "kss": "^3.0.0",
     "node-sass": "4.13.1",
     "reset-css": "^5.0.1",

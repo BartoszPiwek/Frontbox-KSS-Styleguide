@@ -1,25 +1,16 @@
-type onChangeFunction = (link: HTMLButtonElement, content: HTMLElement) => void;
-
 export class ITabs {
   element: Element;
-  onChange: onChangeFunction;
 }
 
 export class Tabs {
   private data: Element;
-  private onChange: onChangeFunction;
 
   private links: HTMLCollectionOf<HTMLButtonElement>;
   private contents: HTMLCollectionOf<HTMLElement>;
   private activeTab: number = 0;
-  private activeLink: number = 0;
 
   constructor(data: ITabs) {
     this.data = data.element;
-
-    if (data.onChange) {
-      this.onChange = data.onChange;
-    }
 
     this.start();
   }
@@ -36,27 +27,21 @@ export class Tabs {
   private onClick(e: MouseEvent) {
     const target = e.target as HTMLButtonElement;
     const linkIndex = parseInt(target.getAttribute('tabItem'));
-    const contentIndex = parseInt(target.getAttribute('tabContent'));
 
-    if (this.activeLink === linkIndex) {
+    if (this.activeTab === linkIndex) {
       return;
     }
 
-    this.links[this.activeLink].classList.remove('is-active');
+    this.links[this.activeTab].classList.remove('is-active');
     this.contents[this.activeTab].classList.remove('is-active');
 
     const link = this.links[linkIndex];
-    const content = this.contents[contentIndex];
+    const content = this.contents[linkIndex];
 
     link.classList.add('is-active');
     content.classList.add('is-active');
 
-    if (this.onChange) {
-      this.onChange(link, content);
-    }
-
-    this.activeTab = contentIndex;
-    this.activeLink = linkIndex
+    this.activeTab = linkIndex
   }
 
   private bindLink(element: HTMLButtonElement) {
