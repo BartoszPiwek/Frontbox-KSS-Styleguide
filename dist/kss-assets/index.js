@@ -156,6 +156,9 @@ var IframeContent = /** @class */ (function () {
         this.iframeElement = this.data.getElementsByClassName('iframe-content__iframe')[0];
         var contentElement = this.data.getElementsByClassName('iframe-content__content')[0];
         this.iframeElement.contentWindow.document.body.innerHTML = contentElement.innerHTML;
+        var styleElement = this.iframeElement.contentWindow.document.body.getElementsByTagName('style')[0];
+        console.log(styleElement);
+        styleElement.removeAttribute('type');
         contentElement.remove();
         this.iframeElement.style.height = this.iframeElement.contentWindow.document.documentElement.scrollHeight + 'px';
         this.data.classList.add('is-active');

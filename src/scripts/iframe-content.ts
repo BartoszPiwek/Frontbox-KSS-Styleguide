@@ -13,6 +13,10 @@ export class IframeContent {
     const contentElement = this.data.getElementsByClassName('iframe-content__content')[0] as HTMLElement;
 
     this.iframeElement.contentWindow.document.body.innerHTML = contentElement.innerHTML;
+    const styleElement = this.iframeElement.contentWindow.document.body.getElementsByTagName('style')[0] as HTMLStyleElement;
+    console.log(styleElement);
+
+    styleElement.removeAttribute('type');
 
     contentElement.remove();
 
