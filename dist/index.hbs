@@ -147,29 +147,6 @@
 								<pre class="language-scss"><code class="language-scss">{{{prism outputcss 'scss'}}}</code></pre>
 						</div>
 						{{/if}}
-
-						{{#if colors }}
-						<ul class="kss-colors">
-							{{#each colors}}
-							<li>
-								<figure class="kss-color">
-									<div class="kss-color-figure" style="background-color:{{color}}"></div>
-									<figcaption class="kss-color-caption">
-										{{#if name }}
-										<strong class="kss-color-name">{{ color.name }}</strong>
-										{{/if}}
-										<strong class="kss-color-name">{{name}}</strong>
-										<code class="kss-color-code">{{color}}</code>
-										{{#if description}}
-										<p class="kss-color-desc">{{description}}</p>
-										{{/if}}
-									</figcaption>
-								</figure>
-							</li>
-							{{/each}}
-						</ul>
-						{{/if}}
-
 					</div>
 
 					{{#if example}}
@@ -179,13 +156,14 @@
 
 								<div class="tabs">
 									<div class="tabs-header">
-										<button class="tabs-header__item is-active" type="button" tabItem="0">
+										<button class="tabs-header__item is-active" type="button" tabItem="0" tabContent="0"
+											tabResponsive="false">
 											Preview
 										</button>
-										<button class="tabs-header__item" type="button" tabItem="1">
+										<button class="tabs-header__item" type="button" tabItem="1" tabContent="0" tabResponsive="true">
 											Preview responsive
 										</button>
-										<button class="tabs-header__item" type="button" tabItem="2">
+										<button class="tabs-header__item" type="button" tabItem="2" tabContent="1">
 											Source code
 										</button>
 									</div>
@@ -204,18 +182,6 @@
 										</div>
 
 										<div class="tabs-content__item" tabItem="1">
-											<pre class="language-none">
-												<div class="iframe-content iframe-content--responsive">
-													<iframe class="iframe-content__iframe "></iframe>
-													<div class="iframe-content__content">
-															{{{htmlScssStyleToCSS example}}}
-															{{{example}}}
-													</div>
-												</div>
-											</pre>
-										</div>
-
-										<div class="tabs-content__item" tabItem="2">
 											<pre
 												class="language-html"><code class="language-html" data-language="html">{{{prism markup 'html'}}}</code></pre>
 										</div>

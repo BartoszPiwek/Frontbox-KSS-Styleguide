@@ -171,19 +171,27 @@ var tabs_1 = require("./tabs");
 var iframe_content_1 = require("./iframe-content");
 var ScrollSpy = require('scrollspy-js');
 window.onload = function () {
-    var spy = new ScrollSpy('#doc-body', {
+    new ScrollSpy('#doc-body', {
         nav: '.doc-sidebar-nav__child > li > a',
         className: 'doc-is-viewed'
     });
     var iframes = document.getElementsByClassName('iframe-content');
-    var iframesData = [];
-    Array.from(iframes).forEach(function (element, index) {
-        iframesData.push(new iframe_content_1.IframeContent(element));
+    Array.from(iframes).forEach(function (element) {
+        new iframe_content_1.IframeContent(element);
     });
     var tabs = document.getElementsByClassName('tabs');
     Array.from(tabs).forEach(function (tab, tabIndex) {
         new tabs_1.Tabs({
-            element: tab
+            element: tab,
+            onChange: function (link, content) {
+                var hasLinkResponsive = link.getAttribute('tabResponsive') === 'true';
+                if (hasLinkResponsive) {
+                    content.classList.add('iframe-content--responsive');
+                }
+                else {
+                    content.classList.remove('iframe-content--responsive');
+                }
+            }
         });
     });
 };
@@ -200,12 +208,10 @@ exports.ITabs = ITabs;
 var Tabs = /** @class */ (function () {
     function Tabs(data) {
         this.activeTab = 0;
+        this.activeLink = 0;
         this.data = data.element;
-        if (data.onActive) {
-            this.onActive = data.onActive;
-        }
-        if (data.afterInit) {
-            this.afterInit = data.afterInit;
+        if (data.onChange) {
+            this.onChange = data.onChange;
         }
         this.start();
     }
@@ -216,28 +222,25 @@ var Tabs = /** @class */ (function () {
         Array.from(this.links).forEach(function (link) {
             _this.bindLink(link);
         });
-        if (this.afterInit) {
-            this.afterInit();
-        }
     };
     Tabs.prototype.onClick = function (e) {
         var target = e.target;
-        var index = parseInt(target.getAttribute('tabitem'));
-        if (this.activeTab === index) {
+        var linkIndex = parseInt(target.getAttribute('tabItem'));
+        var contentIndex = parseInt(target.getAttribute('tabContent'));
+        if (this.activeLink === linkIndex) {
             return;
         }
-        this.links[this.activeTab].classList.remove('is-active');
+        this.links[this.activeLink].classList.remove('is-active');
         this.contents[this.activeTab].classList.remove('is-active');
-        this.links[index].classList.add('is-active');
-        this.contents[index].classList.add('is-active');
-        if (this.onActive) {
-            this.onActive(index);
+        var link = this.links[linkIndex];
+        var content = this.contents[contentIndex];
+        link.classList.add('is-active');
+        content.classList.add('is-active');
+        if (this.onChange) {
+            this.onChange(link, content);
         }
-        var iframeElement = this.contents[index].getElementsByClassName('iframe-content__iframe')[0];
-        if (iframeElement) {
-            iframeElement.style.height = iframeElement.contentWindow.document.documentElement.scrollHeight + 'px';
-        }
-        this.activeTab = index;
+        this.activeTab = contentIndex;
+        this.activeLink = linkIndex;
     };
     Tabs.prototype.bindLink = function (element) {
         var _this = this;

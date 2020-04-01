@@ -3,17 +3,16 @@ import { IframeContent } from './iframe-content';
 const ScrollSpy = require('scrollspy-js');
 
 window.onload = () => {
-  var spy = new ScrollSpy('#doc-body', {
+
+  new ScrollSpy('#doc-body', {
     nav: '.doc-sidebar-nav__child > li > a',
     className: 'doc-is-viewed'
   });
 
   const iframes = document.getElementsByClassName('iframe-content');
 
-  let iframesData: Array<IframeContent> = [];
-
-  Array.from(iframes).forEach((element, index) => {
-    iframesData.push(new IframeContent(element));
+  Array.from(iframes).forEach(element => {
+    new IframeContent(element);
   });
 
   const tabs = document.getElementsByClassName('tabs');
@@ -21,6 +20,15 @@ window.onload = () => {
   Array.from(tabs).forEach((tab, tabIndex) => {
     new Tabs({
       element: tab,
+      onChange(link: HTMLButtonElement, content: HTMLIFrameElement) {
+        const hasLinkResponsive = link.getAttribute('tabResponsive') === 'true';
+
+        if (hasLinkResponsive) {
+          content.classList.add('iframe-content--responsive');
+        } else {
+          content.classList.remove('iframe-content--responsive');
+        }
+      }
     });
   });
 };
