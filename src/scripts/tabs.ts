@@ -1,14 +1,16 @@
+type onChangeFunction = (link: HTMLButtonElement, content: HTMLElement) => void;
+
 export class ITabs {
   element: Element;
-  onChange: Function;
+  onChange: onChangeFunction;
 }
 
 export class Tabs {
   private data: Element;
-  private onChange: Function;
+  private onChange: onChangeFunction;
 
   private links: HTMLCollectionOf<HTMLButtonElement>;
-  private contents: HTMLCollectionOf<Element>;
+  private contents: HTMLCollectionOf<HTMLElement>;
   private activeTab: number = 0;
   private activeLink: number = 0;
 
@@ -24,7 +26,7 @@ export class Tabs {
 
   private start() {
     this.links = this.data.getElementsByClassName('tabs-header__item') as HTMLCollectionOf<HTMLButtonElement>;
-    this.contents = this.data.getElementsByClassName('tabs-content__item');
+    this.contents = this.data.getElementsByClassName('tabs-content__item') as HTMLCollectionOf<HTMLElement>;
 
     Array.from(this.links).forEach(link => {
       this.bindLink(link);

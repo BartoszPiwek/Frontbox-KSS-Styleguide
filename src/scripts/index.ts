@@ -20,7 +20,7 @@ window.onload = () => {
   Array.from(tabs).forEach((tab, tabIndex) => {
     new Tabs({
       element: tab,
-      onChange(link: HTMLButtonElement, content: HTMLIFrameElement) {
+      onChange(link, content) {
         const hasLinkResponsive = link.getAttribute('tabResponsive') === 'true';
 
         if (hasLinkResponsive) {
