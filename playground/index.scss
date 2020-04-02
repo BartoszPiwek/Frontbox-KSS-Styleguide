@@ -3,6 +3,16 @@ Square
 
 Create square element. Child element have container size.
 
+HTML:
+<div class="square">
+	<div class="square__content">
+		content
+	</div>
+</div>
+
+Usage:
+@include 'foo';
+
 Markup: square.html
 
 Style guide: Blocks.square
@@ -15,5 +25,25 @@ Create square element. Child element have container size.
 
 Markup: square.html
 
+Usage:
+@include 'foo';
+
 Style guide: Blocks.square2
+*/
+
+/*
+Square
+
+Create square element. Child element have container size.
+
+Markup: square.html
+
+HTML:
+<div class="square">
+	<div class="square__content">
+		content
+	</div>
+</div>
+
+Style guide: Blocks.square3
 */

@@ -2,11 +2,7 @@
   "title": "Frontbox KSS Styleguide Playground",
   "builder": "dist/",
   "source": "assets/",
-  "custom": [
-    "Function",
-    "Style",
-    "Usage"
-  ],
+  "custom": ["Function", "Style", "Usage", "HTML"],
   "extend": "dist/helpers",
   "destination": "playground/styleguide",
   "homepage": "playground/README.md"
