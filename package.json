@@ -1,14 +1,14 @@
 {
   "name": "@bpiwek/frontbox-kss-styleguide",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Fronbox KSS Styleguide",
   "scripts": {
     "build:dev:css": "node-sass src/style/index.scss dist/kss-assets/index.css",
     "build:prod:css": "postcss --use autoprefixer < dist/kss-assets/index.css | postcss --use cssnano > dist/kss-assets/index.min.css",
-    "build:dev:js": "browserify src/scripts/index.ts -p [ tsify --noImplicitAny ] > dist/kss-assets/index.js",
+    "build:js": "browserify src/scripts/index.ts -p [ tsify --noImplicitAny ] > dist/kss-assets/index.js",
     "playground": "kss playground/ --config kss-config.json",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "yarn build:dev:css && yarn build:prod:css",
+    "build": "yarn build:dev:css && yarn build:prod:css && yarn build:js",
     "publish": "yarn build && npm publish --access public"
   },
   "keywords": [

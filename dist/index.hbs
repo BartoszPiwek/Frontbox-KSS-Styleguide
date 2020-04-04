@@ -73,7 +73,7 @@
 				{{else}}
 
 				{{!-- Page content --}}
-				<section id="{{referenceURI}}" class="section section--depth-{{depth}}">
+				<div id="{{referenceURI}}" class="section section--depth-{{depth}}">
 
 					<a class="doc-wrap-section doc-section-title doc-depth-{{depth}}" href="#{{referenceURI}}">
 						<span class="doc-section-title__text doc-depth-{{depth}}">
@@ -87,7 +87,7 @@
 					</a>
 
 					{{#if description}}
-					<div class="section-description  doc-wrap-section">
+					<div class="section-description doc-wrap-section">
 						<div class="doc-markdown">
 							{{{description}}}
 
@@ -95,49 +95,51 @@
 							<p>Before using module remember to include base style.</p>
 							<pre class="language-scss"><code class="language-scss select-all">{{{prism style 'scss'}}}</code></pre>
 							{{/if}}
-
 						</div>
 					</div>
 					{{/if}}
 
+					{{#if function}}
 					<div class="section__body doc-wrap-section">
-						{{#if function}}
 						<div class="section-item">
 							<p class="section-item__title">Funcion/Mixin</h3>
 								<pre class="language-scss"><code class="language-scss select-all">{{{prism function}}}</code></pre>
 						</div>
-						{{/if}}
+					</div>
+					{{/if}}
 
-						{{!-- Example --}}
-						{{#ifOr usage html}}
+					{{#ifOr usage html}}
+					<div class="section__body doc-wrap-section">
 						<div class="section-item">
 							<p class="section-item__title">Usage</h3>
 								{{#if usage}}
 								<pre class="language-scss"><code class="language-scss select-all">{{{prism usage 'scss'}}}</code></pre>
 								{{/if}}
+
 								{{#if html}}
 								<pre class="language-html"><code class="language-html select-all">{{{prism html 'html'}}}</code></pre>
 								{{/if}}
 						</div>
-						{{/ifOr}}
 					</div>
+					{{/ifOr}}
 
 					{{#if example}}
-					<div class="section-item">
-						<p class="section-item__title doc-wrap-section">Example{{#if modifiers}}s{{/if}}</h3>
-							<div class="doc-wrap-section kss-example-wrapper">
+					<div class="section__body doc-wrap-section">
+						<div class="section-item">
+							<p class="section-item__title">Example{{#if modifiers}}s{{/if}}</h3>
 
 								<div class="tabs">
 									<div class="tabs-header">
 										<button class="tabs-header__item is-active" type="button" tabItem="0">
 											Preview
 										</button>
+
 										<button class="tabs-header__item" type="button" tabItem="1">
 											Source code
 										</button>
 									</div>
-									<div class="tabs-content">
 
+									<div class="tabs-content">
 										<div class="tabs-content__item is-active" tabItem="0">
 											<pre class="language-none">
 												<div class="iframe-content">
@@ -156,19 +158,21 @@
 										</div>
 									</div>
 								</div>
-
-							</div>
+						</div>
 					</div>
 					{{/if}}
 
-				</section>
-				{{/if}}
+					</section>
+					{{/if}}
 
-				{{/each}}
+					{{/each}}
 
-				{{/if}}
+					{{/if}}
+				</div>
 			</div>
-		</main>
+	</div>
+
+	</main>
 	</div>
 
 	<script src="kss-assets/index.js"></script>

@@ -144,5 +144,19 @@ code {
 .doc {
   &-wrap-section {
     padding-left: 60px;
+
+    .section--depth-2 & {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        width: 4px;
+        height: 100%;
+        background: $colorSecondary;
+      }
+    }
   }
 }
