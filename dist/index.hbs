@@ -8,9 +8,7 @@
 	<meta name="generator" content="kss-node">
 	<meta name="viewport" content="width=device-width">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="kss-assets/index.css">
+	<link rel="stylesheet" href="kss-assets/index.min.css">
 </head>
 
 <body class="doc-body" id="doc-body">
@@ -105,31 +103,8 @@
 					<div class="section__body doc-wrap-section">
 						{{#if function}}
 						<div class="section-item">
-							<p class="section-item__title">Function</h3>
+							<p class="section-item__title">Funcion/Mixin</h3>
 								<pre class="language-scss"><code class="language-scss select-all">{{{prism function}}}</code></pre>
-						</div>
-						{{/if}}
-
-						{{!-- Arguments --}}
-						{{#if arguments}}
-						<div class="section-item">
-							<p class="section-item__title">Arguments</h3>
-								<table class="table">
-									<thead>
-										<td>Variable</td>
-										<td>Type</td>
-										<td>Default value</td>
-									</thead>
-									<tbody>
-										{{#kssArguments arguments}}
-										<tr>
-											<td class="token function">{{{argument.variable}}}</td>
-											<td>{{{argument.type}}}</td>
-											<td>{{{argument.value}}}</td>
-										</tr>
-										{{/kssArguments}}
-									</tbody>
-								</table>
 						</div>
 						{{/if}}
 

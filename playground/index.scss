@@ -1,4 +1,36 @@
 /*
+Rectangle
+
+Responsive rectangle shape based on element width.<br>
+
+Mixin `add-rectangle` create rectangle ratio size.
+
+Prepared elements classes:
+- `rectangle` - parent
+- `rectangle__content` - child. 
+
+Function:
+// $width: number
+// $height: number
+@include add-rectangle($width, $height);
+
+Usage:
+.rectangle-16-9 {
+ @include add-rectangle(16, 9);
+}
+
+HTML:
+<div class="rectangle rectangle-16-9">
+  <div class="rectangle__content"></div>
+</div>
+
+Style:
+@include add-rectangle-style;
+
+Style guide: Shapes.Rectangle
+*/
+
+/*
 Square
 
 Create square element. Child element have container size.

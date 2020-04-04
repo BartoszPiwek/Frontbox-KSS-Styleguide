@@ -4,3 +4,5 @@ node_modules
 src
 playground
 package-lock.json
+*.css
+!*.min.css

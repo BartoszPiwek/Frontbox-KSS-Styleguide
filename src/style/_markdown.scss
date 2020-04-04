@@ -1,4 +1,16 @@
 .doc-markdown {
+  p {
+    margin: 4px 0;
+  }
+
+  ul {
+    margin: 10px 0;
+
+    li {
+      margin: 4px 0 4px 10px;
+    }
+  }
+
   a {
     text-decoration: none;
     position: relative;

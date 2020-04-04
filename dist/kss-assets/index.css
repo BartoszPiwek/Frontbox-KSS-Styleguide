@@ -1727,6 +1727,14 @@ code {
 #kss-node pre.hljs code {
   color: inherit; }
 
+.doc-markdown p {
+  margin: 4px 0; }
+
+.doc-markdown ul {
+  margin: 10px 0; }
+  .doc-markdown ul li {
+    margin: 4px 0 4px 10px; }
+
 .doc-markdown a {
   text-decoration: none;
   position: relative;
@@ -1893,8 +1901,7 @@ code {
   font-size: 0;
   position: relative;
   width: 100%;
-  background-image: linear-gradient(45deg, #dbe4ed 25%, rgba(44, 44, 45, 0) 25%, rgba(44, 44, 45, 0) 75%, #dbe4ed 75%, #dbe4ed), linear-gradient(45deg, #dbe4ed 25%, rgba(44, 44, 45, 0) 25%, rgba(44, 44, 45, 0) 75%, #dbe4ed 75%, #dbe4ed);
-  background-color: #232425;
+  background: #dbe4ed;
   background-position: 0 0, 10px 10px;
   background-size: 21px 21px; }
   .iframe-content:not(.is-active):before {
@@ -1919,7 +1926,7 @@ code {
   .iframe-content__iframe {
     background: #fff;
     box-sizing: border-box;
-    border-right: 6px solid #dbe4ed !important;
+    border-right: 6px solid #379683 !important;
     height: 0;
     width: 100%;
     border: 0; }
