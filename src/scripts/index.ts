@@ -5,9 +5,9 @@ const ScrollSpy = require('scrollspy-js');
 
 window.onload = () => {
 
-  new ScrollSpy('#doc-body', {
-    nav: '.doc-sidebar-nav__child > li > a',
-    className: 'doc-is-viewed'
+  new ScrollSpy('#body', {
+    nav: '.sidebar-nav__child > li > a',
+    className: 'is-viewed'
   });
 
   const iframes = document.getElementsByClassName('iframe-content');

@@ -1,77 +1,63 @@
 @keyframes iframeContentLoading {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
 
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
 }
 
 @keyframes iframeContentResponsive {
-  from {
-    width: 100%;
-  }
+	from {
+		width: 100%;
+	}
 
-  to {
-    width: 320px;
-  }
+	to {
+		width: 320px;
+	}
 }
 
 .iframe-content {
-  font-size: 0;
-  position: relative;
-  width: 100%;
-  background: $colorBackground;
-  background-position: 0 0, 10px 10px;
-  background-size: 21px 21px;
+	position: relative;
+	width: 100%;
+	overflow-x: auto;
+	background: color('background');
+	font-size: 0;
 
-  &:not(.is-active) {
-    &:before {
-      box-sizing: border-box;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 20px;
-      height: 20px;
-      background: $colorPrimary;
-      content: '';
-      animation-name: iframeContentLoading;
-      animation-duration: 1s;
-      animation-timing-function: ease-out;
-      animation-iteration-count: infinite;
-    }
+	&:not(.is-active) {
+		&:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			box-sizing: border-box;
+			width: 20px;
+			height: 20px;
+			transform: translate(-50%, -50%);
+			animation-name: iframeContentLoading;
+			animation-duration: 1s;
+			animation-timing-function: ease-out;
+			animation-iteration-count: infinite;
+			background: color('primary');
+		}
 
-    .iframe-content {
-      &__content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0;
-      }
-    }
-  }
+		.iframe-content {
+			&__content {
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0;
+			}
+		}
+	}
 
-  &__iframe {
-    background: #fff;
-    box-sizing: border-box;
-    border-right: 6px solid $colorSecondary !important;
-    height: 0;
-    width: 100%;
-    border: 0;
-  }
-
-  &--responsive {
-    .iframe-content {
-      &__iframe {
-        animation-name: iframeContentResponsive;
-        animation-duration: 8s;
-        animation-timing-function: ease-out;
-        animation-delay: 0s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-      }
-    }
-  }
+	&__iframe {
+		box-sizing: border-box;
+		width: 868px;
+		height: 0;
+		border: 0;
+		border-right: 6px solid color('primary') !important;
+		background: #fff;
+	}
 }

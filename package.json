@@ -1,15 +1,14 @@
 {
   "name": "@bpiwek/frontbox-kss-styleguide",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Fronbox KSS Styleguide",
   "scripts": {
-    "build:dev:css": "node-sass src/style/index.scss dist/kss-assets/index.css",
-    "build:prod:css": "postcss --use autoprefixer < dist/kss-assets/index.css | postcss --use cssnano > dist/kss-assets/index.min.css",
+    "build:css": "node-sass src/style/index.scss dist/kss-assets/index.css && postcss --use autoprefixer < dist/kss-assets/index.css | postcss --use cssnano > dist/kss-assets/index.min.css",
     "build:js": "browserify src/scripts/index.ts -p [ tsify --noImplicitAny ] > dist/kss-assets/index.js",
-    "playground": "kss playground/ --config kss-config.json",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "yarn build:dev:css && yarn build:prod:css && yarn build:js",
-    "publish": "yarn build && npm publish --access public"
+    "build": "yarn build:css && yarn build:js",
+    "playground": "yarn build:css && kss playground/style/ --config kss-config.json",
+    "publish": "yarn build && npm publish --access public",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "framework",
@@ -22,18 +21,22 @@
   "author": "Bartosz Piwek",
   "license": "ISC",
   "devDependencies": {
+    "@bpiwek/frontbox-style": "^0.0.3",
     "@types/jquery": "^3.3.34",
+    "@types/vfile-message": "^2.0.0",
     "autoprefixer": "^9.7.5",
     "browserify": "^16.5.1",
     "cssnano": "^4.1.10",
-    "github-markdown-css": "^4.0.0",
     "interactjs": "^1.9.7",
     "kss": "^3.0.0",
     "node-sass": "4.13.1",
     "postcss": "^7.0.27",
     "postcss-cli": "^7.1.0",
-    "reset-css": "^5.0.1",
     "scrollspy-js": "^0.1.3",
+    "stylelint": "^13.2.1",
+    "stylelint-config-property-sort-order-smacss": "^6.0.0",
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.16.0",
     "ts-node": "^8.8.1",
     "tsify": "^4.0.1",
     "typescript": "^3.8.3"

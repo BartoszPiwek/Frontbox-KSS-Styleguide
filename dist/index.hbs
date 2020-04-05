@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="doc" lang="en">
+<html class="html" lang="en">
 
 <head>
 	<meta charset="utf-8">
@@ -11,31 +11,31 @@
 	<link rel="stylesheet" href="kss-assets/index.min.css">
 </head>
 
-<body class="doc-body" id="doc-body">
-	<div class="doc-page">
+<body class="body" id="body">
+	<div class="page wrap">
 
-		<aside class="doc-sidebar">
-			<nav class="doc-sidebar-nav" aria-label="Style Guide">
-				<ul class="doc-sidebar-nav__menu">
+		<aside class="sidebar">
+			<nav class="sidebar-nav" aria-label="Style Guide">
+				<ul class="sidebar-nav__menu">
 
-					<li class="doc-sidebar-nav__item {{#if template.isHomepage}} doc-is-active {{/if}}">
-						<a class="doc-sidebar-nav__link" href="index.html">
+					<li class="sidebar-nav__item {{#if template.isHomepage}} is-active {{/if}}">
+						<a class="sidebar-nav__link" href="index.html">
 							Homepage
 						</a>
 					</li>
 
 					{{#each menu}}
-					<li class="doc-sidebar-nav__item {{#if isActive}} doc-is-active {{/if}}">
-						<a class="doc-sidebar-nav__link" href="section-{{referenceURI}}.html">
+					<li class="sidebar-nav__item {{#if isActive}} is-active {{/if}}">
+						<a class="sidebar-nav__link" href="section-{{referenceURI}}.html">
 							{{header}}
 						</a>
 
 						{{#if isActive}}
 						{{#if children}}
-						<ul class="doc-sidebar-nav__child">
+						<ul class="sidebar-nav__child">
 							{{#each children}}
-							<li class="doc-sidebar-nav__item doc-depth-{{depth}}">
-								<a class="doc-sidebar-nav__link" href="section-{{../referenceURI}}.html#{{referenceURI}}">
+							<li class="sidebar-nav__item depth-{{depth}}">
+								<a class="sidebar-nav__link" href="section-{{../referenceURI}}.html#{{referenceURI}}">
 									{{header}}
 								</a>
 							</li>
@@ -49,37 +49,36 @@
 			</nav>
 		</aside>
 
-		<main class="doc-main">
-			<div class="doc-main__container">
-				{{#if template.isHomepage}}
-				{{#if homepage}}
-				<div class="doc-wrap-section">
-					<div class="markdown-body">
+		<main class="main">
+			<div class="main__container">
+
+				{{#if template.isHomepage}}{{#if homepage}}
+				<div class="section-wrap">
+					<div class="markdown main__homepage">
 						{{{homepage}}}
 					</div>
 				</div>
-				{{/if}}
-				{{else}}
+				{{/if}}{{else}}
 
 				{{#each sections}}
 
 				{{#if @first}}
-				<h1 class="doc-main__header">
+				<h1 class="main__header section-wrap">
 					{{header}}
 				</h1>
 				{{#if description}}
-				<div class="doc-main__description doc-wrap-section doc-markdown">{{{description}}}</div>
+				<div class="main__description section-wrap markdown">{{{description}}}</div>
 				{{/if}}
 				{{else}}
 
 				{{!-- Page content --}}
 				<div id="{{referenceURI}}" class="section section--depth-{{depth}}">
 
-					<a class="doc-wrap-section doc-section-title doc-depth-{{depth}}" href="#{{referenceURI}}">
-						<span class="doc-section-title__text doc-depth-{{depth}}">
+					<a class="section-wrap section-title depth-{{depth}}" href="#{{referenceURI}}">
+						<span class="section-title__text depth-{{depth}}">
 							{{header}}
 						</span>
-						<span class="doc-section-title__ref">
+						<span class="section-title__ref">
 							{{#if source.filename}}
 							{{source.filename}}
 							{{/if}}
@@ -87,8 +86,8 @@
 					</a>
 
 					{{#if description}}
-					<div class="section-description doc-wrap-section">
-						<div class="doc-markdown">
+					<div class="section-description section-wrap">
+						<div class="markdown">
 							{{{description}}}
 
 							{{#if style}}
@@ -100,7 +99,7 @@
 					{{/if}}
 
 					{{#if function}}
-					<div class="section__body doc-wrap-section">
+					<div class="section__body section-wrap">
 						<div class="section-item">
 							<p class="section-item__title">Funcion/Mixin</h3>
 								<pre class="language-scss"><code class="language-scss select-all">{{{prism function}}}</code></pre>
@@ -109,7 +108,7 @@
 					{{/if}}
 
 					{{#ifOr usage html}}
-					<div class="section__body doc-wrap-section">
+					<div class="section__body section-wrap">
 						<div class="section-item">
 							<p class="section-item__title">Usage</h3>
 								{{#if usage}}
@@ -124,7 +123,7 @@
 					{{/ifOr}}
 
 					{{#if example}}
-					<div class="section__body doc-wrap-section">
+					<div class="section__body section-wrap">
 						<div class="section-item">
 							<p class="section-item__title">Example{{#if modifiers}}s{{/if}}</h3>
 

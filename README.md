@@ -4,23 +4,28 @@
 
 //TODO: description
 
-[![npm version](https://badge.fury.io/js/%40bpiwek%2Ffrontbox-kss-styleguide.svg)](https://badge.fury.io/js/%40bpiwek%2Ffrontbox-kss-styleguide)
+![npm version](https://badge.fury.io/js/%40bpiwek%2Ffrontbox-kss-styleguide.svg)
 
 ## Install
 
 Add package on your project
+
 ```bash
 npm i @bpiwek/frontbox-kss-styleguide
 ```
+
 or
+
 ```bash
 yarn add @bpiwek/frontbox-kss-styleguide
 ```
 
 ## Usage
+
 Be sure to be familiar with [kss-node](https://kss-node.github.io/kss-node/).
 
 Create config file `kss-config.json` in your root project folder and past below config:
+
 ```json
 {
   "title": "...",
@@ -28,20 +33,12 @@ Create config file `kss-config.json` in your root project folder and past below 
   "extend": "node_modules/@bpiwek/frontbox-kss-styleguide/dist/helpers/",
   "destination": "documentation/",
   "homepage": "src/README.md",
-  "custom": [
-    "Function",
-    "Output",
-    "OutputCSS",
-    "Icons",
-    "Usage",
-    "Arguments",
-    "Title",
-    "Style"
-  ]
+  "custom": ["Function", "Style", "Usage", "HTML"]
 }
 ```
 
 ## Develop
+
 Make sure to install this fallowing plugins for Visual Code Studio before making changes.
 
 <ul>

@@ -1,20 +1,16 @@
-$colorPrimary: #05386b;
-$colorSecondary: #379683;
-$colorWhite: #f3f7fb;
-$colorBlack: #1b1716;
-$color-primary: red;
-$color-secondary: blue;
-$colorBackground: white;
+@import './../../node_modules/@bpiwek/frontbox-style/index';
 @import './../../node_modules/highlight.js/styles/vs2015';
 @import './../../node_modules/prismjs/themes/prism-coy';
-@import './../../node_modules/reset-css/reset';
-@import './../../node_modules/github-markdown-css/github-markdown';
+
+@include add-browser-reset;
+@include add-wrap-style;
+
+@import 'variables/colors';
 @import 'base';
 @import 'code';
 @import 'kss';
 @import 'markdown';
 @import 'sidebar';
-@import 'table';
 @import 'section';
 @import 'tabs';
 @import 'iframe';

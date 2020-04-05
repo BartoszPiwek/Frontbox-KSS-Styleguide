@@ -11235,9 +11235,9 @@ var iframe_content_1 = require("./iframe-content");
 var interactjs_1 = require("interactjs");
 var ScrollSpy = require('scrollspy-js');
 window.onload = function () {
-    new ScrollSpy('#doc-body', {
-        nav: '.doc-sidebar-nav__child > li > a',
-        className: 'doc-is-viewed'
+    new ScrollSpy('#body', {
+        nav: '.sidebar-nav__child > li > a',
+        className: 'is-viewed'
     });
     var iframes = document.getElementsByClassName('iframe-content');
     Array.from(iframes).forEach(function (element) {
