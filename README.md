@@ -1,10 +1,9 @@
 <h1>
-<strong>FrontBox KSS Styleguide</strong> <small>by Bartosz Piwek</small>
+<strong>FrontBox KSS Styleguide</strong> <small>by Bartosz Piwek</small><br>
+<img src="https://badge.fury.io/js/%40bpiwek%2Ffrontbox-kss-styleguide.svg">
 </h2>
 
-//TODO: description
-
-![npm version](https://badge.fury.io/js/%40bpiwek%2Ffrontbox-kss-styleguide.svg)
+Template for the KSS-node styleguide
 
 ## Install
 
@@ -32,7 +31,7 @@ Create config file `kss-config.json` in your root project folder and past below 
   "builder": "node_modules/@bpiwek/frontbox-kss-styleguide/dist/",
   "extend": "node_modules/@bpiwek/frontbox-kss-styleguide/dist/helpers/",
   "destination": "documentation/",
-  "homepage": "src/README.md",
+  "homepage": "README.md",
   "custom": ["Function", "Style", "Usage", "HTML"]
 }
 ```
