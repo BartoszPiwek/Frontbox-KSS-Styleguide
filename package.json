@@ -1,6 +1,6 @@
 {
   "name": "@bpiwek/frontbox-kss-styleguide",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Fronbox KSS Styleguide",
   "scripts": {
     "build:css": "node-sass src/style/index.scss dist/kss-assets/index.css && postcss --use autoprefixer < dist/kss-assets/index.css | postcss --use cssnano > dist/kss-assets/index.min.css",

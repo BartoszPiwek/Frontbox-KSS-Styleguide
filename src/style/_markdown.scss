@@ -1,4 +1,14 @@
 .markdown {
+	> * {
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
 	p {
 		margin: 4px 0;
 	}
@@ -31,7 +41,7 @@
 		margin: 6px 0;
 		padding: 4px 10px;
 		border-left: 2px solid color('secondary');
-		background: transparentize(color('secondary'), 0.8);
+		background: transparentize(color('secondary'), .8);
 		font-size: small;
 		font-style: italic;
 		line-height: 13px;
@@ -46,6 +56,10 @@
 		color: color('primary');
 		font-size: 30px;
 		font-weight: bold;
+		
+		@include media('desktop') {
+			font-size: 45px;
+		}
 	}
 
 	h2 {
@@ -60,6 +74,18 @@
 	}
 
 	.hljs {
-		background: color('background');
+		padding: 0;
+		background: transparent;
+
+		code {
+			position: relative;
+			border-left: 10px solid #358ccb;
+			background-attachment: local;
+			background-color: #fdfdfd;
+			background-image: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(69, 142, 209, .04) 0);
+			background-size: 3em 3em;
+			box-shadow: -1px 0 0 0 #358ccb, 0 0 0 1px #dfdfdf;
+			background-origin: content-box;
+		}
 	}
 }
